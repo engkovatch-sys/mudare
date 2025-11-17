@@ -1,3 +1,20 @@
+// ===== HEADER SCROLL EFFECT =====
+let lastScroll = 0;
+const header = document.querySelector('.header');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    // Add shadow on scroll
+    if (currentScroll > 50) {
+        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+    } else {
+        header.style.boxShadow = 'none';
+    }
+
+    lastScroll = currentScroll;
+});
+
 // ===== MOBILE MENU TOGGLE =====
 const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
@@ -9,11 +26,11 @@ if (menuToggle) {
         // Animate hamburger menu
         const spans = menuToggle.querySelectorAll('span');
         spans[0].style.transform = navMenu.classList.contains('active')
-            ? 'rotate(45deg) translate(5px, 5px)'
+            ? 'rotate(45deg) translate(6px, 6px)'
             : 'none';
         spans[1].style.opacity = navMenu.classList.contains('active') ? '0' : '1';
         spans[2].style.transform = navMenu.classList.contains('active')
-            ? 'rotate(-45deg) translate(7px, -6px)'
+            ? 'rotate(-45deg) translate(6px, -6px)'
             : 'none';
     });
 }

@@ -12,7 +12,9 @@ import {
   X,
   Heart,
   Star,
-  Sparkles
+  Sparkles,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 import { 
   companyInfo, 
@@ -23,7 +25,8 @@ import {
   processSteps,
   testimonials,
   processImages,
-  whyMudare
+  whyMudare,
+  faq
 } from '../mockData';
 
 const Home = () => {
@@ -31,6 +34,7 @@ const Home = () => {
   const [activeProject, setActiveProject] = useState(0);
   const [scrollY, setScrollY] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState('Todos');
+  const [openFaqId, setOpenFaqId] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -63,7 +67,7 @@ const Home = () => {
             <div className="flex items-center">
               <img 
                 src="/logo-mudare.png" 
-                alt="MUDARE" 
+                alt="MUDARE Construtora de Alto Padrão São Paulo" 
                 className="h-12 w-auto"
               />
             </div>
@@ -77,9 +81,9 @@ const Home = () => {
               <a href="#servicos" className={`text-sm font-medium transition-colors ${
                 scrollY > 50 ? 'text-gray-700 hover:text-[#C87533]' : 'text-white hover:text-white/80'
               }`}>Serviços</a>
-              <a href="#equipe" className={`text-sm font-medium transition-colors ${
+              <a href="#faq" className={`text-sm font-medium transition-colors ${
                 scrollY > 50 ? 'text-gray-700 hover:text-[#C87533]' : 'text-white hover:text-white/80'
-              }`}>Equipe</a>
+              }`}>FAQ</a>
               <Button className="bg-[#C87533] hover:bg-[#B06429] text-white">
                 <a href="#contato">Vamos Conversar</a>
               </Button>
@@ -103,7 +107,7 @@ const Home = () => {
             <a href="#sobre" className="text-xl text-gray-900" onClick={() => setIsMenuOpen(false)}>Sobre</a>
             <a href="#projetos" className="text-xl text-gray-900" onClick={() => setIsMenuOpen(false)}>Projetos</a>
             <a href="#servicos" className="text-xl text-gray-900" onClick={() => setIsMenuOpen(false)}>Serviços</a>
-            <a href="#equipe" className="text-xl text-gray-900" onClick={() => setIsMenuOpen(false)}>Equipe</a>
+            <a href="#faq" className="text-xl text-gray-900" onClick={() => setIsMenuOpen(false)}>FAQ</a>
             <a href="#contato" className="text-xl text-gray-900" onClick={() => setIsMenuOpen(false)}>Contato</a>
           </nav>
         </div>
@@ -123,7 +127,7 @@ const Home = () => {
         
         <div className="relative z-10 text-center text-white px-6 max-w-5xl">
           <Badge className="mb-6 bg-[#C87533]/90 text-white hover:bg-[#C87533] border-none px-4 py-2 text-sm">
-            Desde {companyInfo.foundedYear} Transformando Sonhos em Realidade
+            Construtora de Alto Padrão São Paulo - Desde {companyInfo.foundedYear}
           </Badge>
           <h1 className="text-5xl md:text-7xl font-bold mb-4 leading-tight">
             {companyInfo.hero.title}
@@ -143,7 +147,7 @@ const Home = () => {
               className="bg-[#C87533] hover:bg-[#B06429] text-white px-8 py-6 text-base"
             >
               <a href="#projetos" className="flex items-center gap-2">
-                Ver Nossos Sonhos Realizados <ArrowRight className="w-5 h-5" />
+                Ver Nossos Projetos <ArrowRight className="w-5 h-5" />
               </a>
             </Button>
             <Button 
@@ -151,7 +155,7 @@ const Home = () => {
               variant="outline" 
               className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-6 text-base"
             >
-              <a href="#contato">Realizar Meu Sonho</a>
+              <a href="#contato">Solicitar Orçamento</a>
             </Button>
           </div>
         </div>
@@ -165,6 +169,7 @@ const Home = () => {
               className={`h-2 rounded-full transition-all duration-300 ${
                 activeProject === index ? 'bg-[#C87533] w-8' : 'bg-white/60 hover:bg-white/90 w-2'
               }`}
+              aria-label={`Ver projeto ${index + 1}`}
             />
           ))}
         </div>
@@ -184,8 +189,24 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Service Areas */}
+      <section className="py-12 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="text-center">
+            <p className="text-gray-600 mb-3">Atendemos as principais regiões de São Paulo:</p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {companyInfo.serviceAreas.map((area, index) => (
+                <Badge key={index} variant="outline" className="border-[#C87533] text-[#C87533]">
+                  {area}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Manifesto Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <Sparkles className="w-12 h-12 text-[#C87533] mx-auto mb-6" />
@@ -203,7 +224,7 @@ const Home = () => {
       </section>
 
       {/* Sobre Section */}
-      <section id="sobre" className="py-24 bg-white">
+      <section id="sobre" className="py-24 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
@@ -222,7 +243,7 @@ const Home = () => {
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   {whyMudare.map((item, index) => (
-                    <div key={index} className="p-4 bg-gray-50 rounded-lg">
+                    <div key={index} className="p-4 bg-white rounded-lg shadow-sm">
                       <h4 className="font-bold text-[#C87533] mb-2">{item.title}</h4>
                       <p className="text-sm text-gray-600">{item.description}</p>
                     </div>
@@ -233,7 +254,7 @@ const Home = () => {
                 <div className="aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
                   <img 
                     src="https://images.unsplash.com/photo-1599995903128-531fc7fb694b"
-                    alt="Construção"
+                    alt="Obra de alto padrão MUDARE Construtora São Paulo"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -268,9 +289,9 @@ const Home = () => {
         <div className="container mx-auto px-6">
           <div className="mb-16 text-center">
             <Badge className="mb-4 bg-[#C87533]/10 text-[#C87533] hover:bg-[#C87533]/20 border-none">Portfólio</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Sonhos Que Viraram Realidade</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Projetos em Destaque</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Cada projeto é uma história única de transformação e realização
+              Obras residenciais, comerciais e corporativas de alto padrão em São Paulo
             </p>
           </div>
 
@@ -297,8 +318,9 @@ const Home = () => {
                   <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-xl group">
                     <img 
                       src={project.image}
-                      alt={project.title}
+                      alt={project.seoAlt}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
@@ -340,7 +362,7 @@ const Home = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
-              <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-200 border-none">Nosso Jeito</Badge>
+              <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-200 border-none">Nosso Processo</Badge>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Do Sonho à Realidade</h2>
               <p className="text-xl text-gray-600">
                 {companyInfo.mission}
@@ -387,8 +409,9 @@ const Home = () => {
               <div key={index} className="relative aspect-square overflow-hidden bg-gray-200 rounded-lg group">
                 <img 
                   src={image}
-                  alt={`Processo ${index + 1}`}
+                  alt={`Obra de alto padrão MUDARE - Processo ${index + 1}`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  loading="lazy"
                 />
               </div>
             ))}
@@ -401,9 +424,9 @@ const Home = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <Badge className="mb-4 bg-[#C87533]/10 text-[#C87533] hover:bg-[#C87533]/20 border-none">Soluções</Badge>
+              <Badge className="mb-4 bg-[#C87533]/10 text-[#C87533] hover:bg-[#C87533]/20 border-none">Serviços</Badge>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Como Podemos Ajudar</h2>
-              <p className="text-xl text-gray-600">Expertise completa para realizar seu projeto dos sonhos</p>
+              <p className="text-xl text-gray-600">Soluções completas em construção de alto padrão</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -422,8 +445,46 @@ const Home = () => {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section id="faq" className="py-24 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <Badge className="mb-4 bg-[#C87533]/10 text-[#C87533] hover:bg-[#C87533]/20 border-none">Dúvidas Frequentes</Badge>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Perguntas e Respostas</h2>
+              <p className="text-xl text-gray-600">Tudo o que você precisa saber sobre construção de alto padrão</p>
+            </div>
+
+            <div className="space-y-4">
+              {faq.map((item) => (
+                <Card key={item.id} className="border-none shadow-sm hover:shadow-md transition-shadow">
+                  <CardContent className="p-0">
+                    <button
+                      onClick={() => setOpenFaqId(openFaqId === item.id ? null : item.id)}
+                      className="w-full p-6 text-left flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
+                    >
+                      <h3 className="text-lg font-bold text-gray-900">{item.question}</h3>
+                      {openFaqId === item.id ? (
+                        <ChevronUp className="w-5 h-5 text-[#C87533] flex-shrink-0" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                      )}
+                    </button>
+                    {openFaqId === item.id && (
+                      <div className="px-6 pb-6">
+                        <p className="text-gray-600 leading-relaxed">{item.answer}</p>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Equipe Section */}
-      <section id="equipe" className="py-24 bg-gray-50">
+      <section id="equipe" className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -441,8 +502,9 @@ const Home = () => {
                     <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[#C87533]/20">
                       <img 
                         src={member.image}
-                        alt={member.name}
+                        alt={`${member.name} - ${member.role} MUDARE Construtora`}
                         className="w-full h-full object-cover"
+                        loading="lazy"
                       />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h3>
@@ -466,13 +528,13 @@ const Home = () => {
       </section>
 
       {/* Depoimentos Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <Badge className="mb-4 bg-[#C87533]/10 text-[#C87533] hover:bg-[#C87533]/20 border-none">Depoimentos</Badge>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Quem Confia, Recomenda</h2>
-              <p className="text-xl text-gray-600">Histórias reais de quem realizou sonhos conosco</p>
+              <p className="text-xl text-gray-600">Construtora recomendada por arquitetos e clientes exigentes</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -506,17 +568,17 @@ const Home = () => {
           }} />
         </div>
         <div className="container mx-auto px-6 text-center relative z-10">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">Pronto Para Mudar?</h2>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6">Pronto Para Construir Seu Sonho?</h2>
           <p className="text-2xl md:text-3xl font-light text-[#C87533] mb-8">
             {companyInfo.slogan}
           </p>
           <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-            Vamos transformar seu sonho em realidade. Entre em contato e descubra como podemos ajudar.
+            Construtora de alto padrão em São Paulo. Vamos transformar seu projeto em realidade.
           </p>
           <Button size="lg" className="bg-[#C87533] hover:bg-[#B06429] text-white px-10 py-7 text-lg">
             <a href="#contato" className="flex items-center gap-2">
               <Heart className="w-6 h-6" />
-              Começar Minha Transformação
+              Solicitar Orçamento Agora
             </a>
           </Button>
         </div>
@@ -527,25 +589,25 @@ const Home = () => {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             <div>
-              <img src="/logo-mudare.png" alt="MUDARE" className="h-12 mb-4" />
+              <img src="/logo-mudare.png" alt="MUDARE Construtora" className="h-12 mb-4" />
               <p className="text-[#C87533] italic mb-4">{companyInfo.slogan}</p>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Construindo sonhos, criando legados, mudando vidas.
+                Construtora de alto padrão em São Paulo. Especializada em construção residencial, reforma comercial e obras corporativas.
               </p>
             </div>
 
             <div>
               <h4 className="text-lg font-bold mb-4">Links Rápidos</h4>
               <ul className="space-y-2">
-                <li><a href="#sobre" className="text-gray-400 hover:text-[#C87533] transition-colors">Nossa História</a></li>
+                <li><a href="#sobre" className="text-gray-400 hover:text-[#C87533] transition-colors">Sobre</a></li>
                 <li><a href="#projetos" className="text-gray-400 hover:text-[#C87533] transition-colors">Projetos</a></li>
                 <li><a href="#servicos" className="text-gray-400 hover:text-[#C87533] transition-colors">Serviços</a></li>
-                <li><a href="#equipe" className="text-gray-400 hover:text-[#C87533] transition-colors">Equipe</a></li>
+                <li><a href="#faq" className="text-gray-400 hover:text-[#C87533] transition-colors">FAQ</a></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="text-lg font-bold mb-4">Vamos Conversar</h4>
+              <h4 className="text-lg font-bold mb-4">Fale Conosco</h4>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-[#C87533] flex-shrink-0 mt-1" />
@@ -575,8 +637,9 @@ const Home = () => {
 
           <div className="text-center text-gray-400 text-sm">
             <p className="mb-2">
-              © {new Date().getFullYear()} {companyInfo.name}. Todos os direitos reservados.
+              © {new Date().getFullYear()} MUDARE Construtora. Todos os direitos reservados.
             </p>
+            <p className="text-xs mb-2">Construtora de Alto Padrão | São Paulo | Jardins | Alphaville | Cidade Jardim</p>
             <p className="text-[#C87533] italic">{companyInfo.slogan}</p>
           </div>
         </div>

@@ -525,9 +525,31 @@ const Home = () => {
           <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
             Entre em contato para discutir seu projeto
           </p>
-          <Button size="lg" className="bg-[#C87533] hover:bg-[#B06429] text-white px-10 py-7 text-lg">
-            <a href="#contato">Entrar em Contato</a>
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              size="lg" 
+              className="bg-[#C87533] hover:bg-[#B06429] text-white px-8 py-6"
+              onClick={() => window.location.href = `https://wa.me/5511247693 03?text=${encodeURIComponent('Olá! Gostaria de falar sobre um projeto.')}`}
+            >
+              WhatsApp
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-6"
+              onClick={() => window.location.href = `mailto:${companyInfo.contact.email}?subject=${encodeURIComponent('Contato - Projeto MUDARE')}`}
+            >
+              Enviar Email
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-6"
+              onClick={() => window.location.href = `tel:${companyInfo.contact.phone}`}
+            >
+              Ligar Agora
+            </Button>
+          </div>
         </div>
       </section>
 

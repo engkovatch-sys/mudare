@@ -533,7 +533,7 @@ const Home = () => {
             <Button 
               size="lg" 
               className="bg-[#C87533] hover:bg-[#B06429] text-white px-8 py-6"
-              onClick={() => window.location.href = `https://wa.me/5511247693 03?text=${encodeURIComponent('Olá! Gostaria de falar sobre um projeto.')}`}
+              onClick={() => window.location.href = `https://wa.me/551151961909?text=${encodeURIComponent('Olá! Gostaria de falar sobre um projeto.')}`}
             >
               WhatsApp
             </Button>
@@ -541,7 +541,7 @@ const Home = () => {
               size="lg" 
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-6"
-              onClick={() => window.location.href = `mailto:${companyInfo.contact.email}?subject=${encodeURIComponent('Contato - Projeto MUDARE')}`}
+              onClick={() => window.location.href = `mailto:comercial@mudare.eng.br?subject=${encodeURIComponent('Contato - Projeto MUDARE')}`}
             >
               Enviar Email
             </Button>
@@ -549,7 +549,7 @@ const Home = () => {
               size="lg" 
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-6"
-              onClick={() => window.location.href = `tel:${companyInfo.contact.phone}`}
+              onClick={() => window.location.href = `tel:+551124769303`}
             >
               Ligar Agora
             </Button>

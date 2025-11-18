@@ -32,6 +32,7 @@ export const companyInfo = {
     city: "São Paulo",
     cep: "05467-002",
     phone: "+55 11 2476-9303",
+    whatsapp: "+55 11 5196-1909",
     email: "comercial@mudare.eng.br",
     website: "www.mudare.eng.br"
   },

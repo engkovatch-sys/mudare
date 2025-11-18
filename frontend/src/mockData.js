@@ -52,13 +52,20 @@ export const stats = [
 
 export const architects = [
   "Studio MK27",
-  "Candida Tabet Arquitetura",
+  "Studio Arthur Casas",
+  "Dado Castello Branco",
+  "João Armentano",
+  "Studio Guilherme Torres",
+  "Triptyque Architecture",
   "Olegário de Sá",
-  "Castello Branco Arquitetura",
-  "Mauricio Nobrega",
-  "Augusto Perez",
-  "David Bastos",
-  "Cristina Casellato"
+  "Candida Tabet Arquitetura",
+  "Roberto Migotto",
+  "DB Arquitetos",
+  "Mauricio Nóbrega Arquitetura",
+  "Casellato Studio",
+  "Zeh Naoki Otake",
+  "Marcos Bertoldi Arquitetos",
+  "Augusto Perez"
 ];
 
 export const teamMembers = [

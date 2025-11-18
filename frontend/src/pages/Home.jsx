@@ -60,19 +60,12 @@ const Home = () => {
       }`}>
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center">
               <img 
                 src="/logo-mudare.png" 
                 alt="MUDARE" 
                 className="h-12 w-auto"
               />
-              <div className="hidden md:block">
-                <p className={`text-xs italic transition-colors ${
-                  scrollY > 50 ? 'text-[#C87533]' : 'text-white'
-                }`}>
-                  {companyInfo.slogan}
-                </p>
-              </div>
             </div>
             <nav className="hidden md:flex items-center space-x-8">
               <a href="#sobre" className={`text-sm font-medium transition-colors ${

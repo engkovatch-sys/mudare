@@ -62,8 +62,9 @@ export const architects = [
   "Roberto Migotto",
   "DB Arquitetos",
   "Mauricio Nóbrega Arquitetura",
-  "Casellato Studio",
-  "Zeh Naoki Otake",
+  "Casellato",
+  "Studio Zeh",
+  "Naoki Otake",
   "Marcos Bertoldi Arquitetos",
   "Augusto Perez"
 ];

@@ -121,9 +121,6 @@ const Home = () => {
         </div>
         
         <div className="relative z-10 text-center text-white px-6 max-w-5xl">
-          <Badge className="mb-6 bg-[#C87533]/90 text-white hover:bg-[#C87533] border-none px-4 py-2 text-sm">
-            Desde {companyInfo.foundedYear}
-          </Badge>
           <h1 className="text-5xl md:text-7xl font-bold mb-4 leading-tight">
             {companyInfo.hero.title}
           </h1>

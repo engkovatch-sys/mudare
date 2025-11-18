@@ -21,13 +21,15 @@ import {
   teamMembers, 
   specializations,
   processSteps,
-  testimonials
+  testimonials,
+  processImages
 } from '../mockData';
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeProject, setActiveProject] = useState(0);
   const [scrollY, setScrollY] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState('Todos');
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -44,6 +46,11 @@ const Home = () => {
   }, []);
 
   const featuredProjects = projects.filter(p => p.featured);
+  const categories = ['Todos', 'Residencial', 'Comercial', 'Corporativo'];
+  
+  const filteredProjects = selectedCategory === 'Todos' 
+    ? featuredProjects
+    : featuredProjects.filter(p => p.category === selectedCategory);
 
   return (
     <div className="min-h-screen bg-white">
@@ -245,8 +252,24 @@ const Home = () => {
             </p>
           </div>
 
+          {/* Category Filter */}
+          <div className="flex justify-center gap-3 mb-16 flex-wrap">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant={selectedCategory === category ? "default" : "outline"}
+                onClick={() => setSelectedCategory(category)}
+                className={selectedCategory === category 
+                  ? "bg-[#C87533] hover:bg-[#B06429] text-white" 
+                  : "border-gray-300 hover:bg-gray-100"}
+              >
+                {category}
+              </Button>
+            ))}
+          </div>
+
           <div className="max-w-7xl mx-auto space-y-20">
-            {featuredProjects.map((project, index) => (
+            {filteredProjects.map((project, index) => (
               <div key={project.id} className="grid md:grid-cols-2 gap-8 items-center">
                 <div className={index % 2 === 0 ? 'order-1' : 'order-2'}>
                   <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-xl">
@@ -323,8 +346,25 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Construction Process Images */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-4">
+            {processImages.map((image, index) => (
+              <div key={index} className="relative aspect-square overflow-hidden bg-gray-200 rounded-lg">
+                <img 
+                  src={image}
+                  alt={`Processo ${index + 1}`}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Serviços Section */}
-      <section id="servicos" className="py-24 bg-gray-50">
+      <section id="servicos" className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -347,7 +387,7 @@ const Home = () => {
       </section>
 
       {/* Equipe Section */}
-      <section id="equipe" className="py-24 bg-white">
+      <section id="equipe" className="py-24 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -389,7 +429,7 @@ const Home = () => {
       </section>
 
       {/* Depoimentos Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">

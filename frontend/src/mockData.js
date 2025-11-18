@@ -1,4 +1,4 @@
-// Mock data MUDARE - Textos do PDF original
+// Mock data MUDARE - Com fotos reais dos projetos
 
 export const companyInfo = {
   name: "MUDARE",
@@ -112,65 +112,66 @@ export const teamMembers = [
   }
 ];
 
+// Projetos com fotos reais da MUDARE
 export const projects = [
   {
     id: 1,
-    title: "Casa Areia",
+    title: "Residência Morumbi",
     category: "Residencial",
-    location: "São Paulo",
+    location: "São Paulo - Morumbi",
     architect: "Studio MK27",
     year: 2022,
     area: "850m²",
-    description: "Residência de luxo com forte assinatura arquitetônica",
-    image: "https://images.unsplash.com/photo-1724688078741-6d89e587e809",
+    description: "Residência de luxo com forte assinatura arquitetônica e acabamentos premium",
+    image: "https://customer-assets.emergentagent.com/job_portfolio-upgrade-19/artifacts/ewheq3u2_Residencia_Morumbi_02.jpg",
     featured: true
   },
   {
     id: 2,
-    title: "Triplex Cidade Jardim",
-    category: "Residencial",
+    title: "Restaurante Kinoshita",
+    category: "Comercial",
     location: "São Paulo",
-    architect: "Mauricio Nobrega Arquitetura",
+    architect: "Studio de Arquitetura",
     year: 2021,
-    area: "620m²",
-    description: "Apartamento triplex de alto padrão",
-    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811",
+    area: "320m²",
+    description: "Restaurante japonês de alto padrão com design sofisticado",
+    image: "https://customer-assets.emergentagent.com/job_portfolio-upgrade-19/artifacts/6qeg3nnv_Rest_Kinoshita_03.jpg",
     featured: true
   },
   {
     id: 3,
-    title: "Fazenda Boa Vista",
-    category: "Residencial",
-    location: "Porto Feliz",
-    architect: "Castello Branco Arquitetura & Interiores",
+    title: "Instituto Ayrton Senna",
+    category: "Corporativo",
+    location: "São Paulo",
+    architect: "Candida Tabet Arquitetura",
     year: 2020,
     area: "1200m²",
-    description: "Casa sofisticada que une conforto, tecnologia e harmonia com o entorno natural",
-    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+    description: "Projeto institucional premiado com arquitetura contemporânea",
+    image: "https://customer-assets.emergentagent.com/job_portfolio-upgrade-19/artifacts/xb03c03u_Ayrton_Senna_Instituto%2002.jpg",
     featured: true
   },
   {
     id: 4,
-    title: "Quinta da Baronesa",
-    category: "Residencial",
+    title: "Kross Atelier",
+    category: "Comercial",
     location: "São Paulo",
-    architect: "Candida Tabet Arquitetura",
+    architect: "Olegário de Sá",
     year: 2021,
-    area: "750m²",
-    description: "Projeto residencial com arquitetura autoral",
-    image: "https://images.unsplash.com/photo-1622015663319-e97e697503ee",
+    area: "450m²",
+    description: "Espaço comercial premium com design autoral",
+    image: "https://customer-assets.emergentagent.com/job_portfolio-upgrade-19/artifacts/tg3db9if_Kross_Atelier_IMG_9696.jpg",
     featured: true
   },
   {
     id: 5,
-    title: "Cobertura Duplex",
-    category: "Residencial",
+    title: "Electrolux",
+    category: "Corporativo",
     location: "São Paulo",
-    architect: "Olegário de Sá",
+    architect: "Castello Branco Arquitetura",
     year: 2020,
-    area: "480m²",
-    description: "Cobertura duplex com acabamento premium",
-    image: "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg",
+    area: "2800m²",
+    description: "Projeto corporativo de grande porte com infraestrutura completa",
+    image: "https://customer-assets.emergentagent.com/job_portfolio-upgrade-19/artifacts/u6pzs149_Eletrolux_03.jpg",
     featured: true
   },
   {
@@ -249,7 +250,7 @@ export const testimonials = [
     id: 1,
     name: "Carlos Mendes",
     role: "Proprietário",
-    project: "Casa Areia",
+    project: "Residência Morumbi",
     content: "A Mudare superou todas as expectativas. A atenção aos detalhes e o comprometimento com a qualidade são incomparáveis.",
     rating: 5
   },
@@ -257,7 +258,7 @@ export const testimonials = [
     id: 2,
     name: "Ana Paula Silva",
     role: "Arquiteta",
-    project: "Triplex Cidade Jardim",
+    project: "Instituto Ayrton Senna",
     content: "Trabalhar com a Mudare é ter a certeza de que cada especificação do projeto será executada com precisão e excelência.",
     rating: 5
   },
@@ -265,8 +266,15 @@ export const testimonials = [
     id: 3,
     name: "Roberto Oliveira",
     role: "Investidor",
-    project: "Fazenda Boa Vista",
+    project: "Electrolux",
     content: "Profissionalismo, transparência e resultado excepcional. A Mudare transformou nosso projeto em realidade.",
     rating: 5
   }
+];
+
+// Imagens para seção de processo (usando fotos reais)
+export const processImages = [
+  "https://customer-assets.emergentagent.com/job_portfolio-upgrade-19/artifacts/ewheq3u2_Residencia_Morumbi_02.jpg",
+  "https://customer-assets.emergentagent.com/job_portfolio-upgrade-19/artifacts/6qeg3nnv_Rest_Kinoshita_03.jpg",
+  "https://customer-assets.emergentagent.com/job_portfolio-upgrade-19/artifacts/tg3db9if_Kross_Atelier_IMG_9696.jpg"
 ];

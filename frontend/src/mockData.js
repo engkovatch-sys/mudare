@@ -1,47 +1,27 @@
-// Mock data para MUDARE Construtora
+// Mock data para MUDARE Construtora - Clean Version
 
 export const companyInfo = {
   name: "MUDARE",
-  tagline: "Construtora de Alto Padrão",
+  tagline: "A Engenharia como Arte",
   foundedYear: 2008,
-  description: "A Mudare Construtora é uma construtora de alto padrão liderada por dois engenheiros formados na tradicional Faculdade de Engenharia de São Paulo.",
+  description: "Construtora de alto padrão que une tradição técnica à visão contemporânea da construção.",
   mission: "Transformar projeto em patrimônio com método, precisão e responsabilidade.",
-  values: ["Qualidade", "Rigor", "Precisão", "Eficiência", "Confiabilidade", "Sofisticação", "Inovação", "Transparência"],
   contact: {
     address: "Av. Diógenes Ribeiro de Lima, 1776 - conjunto 2",
     neighborhood: "Alto de Pinheiros",
     city: "São Paulo",
-    cep: "05467",
-    phone: "55 11 2476-9303",
+    cep: "05467-002",
+    phone: "+55 11 2476-9303",
     email: "contato@mudare.eng.br",
     website: "www.mudare.eng.br"
   }
 };
 
-export const teamMembers = [
-  {
-    id: 1,
-    name: "Walter Kovatch",
-    role: "Diretor Administrativo",
-    credentials: [
-      "Engenheiro Civil",
-      "Especialista em Construção Civil",
-      "Membro IBAPE/SP",
-      "Perito Federal"
-    ],
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop"
-  },
-  {
-    id: 2,
-    name: "Sergio Ramos",
-    role: "Diretor Técnico",
-    credentials: [
-      "Engenheiro Civil",
-      "Técnico em Edificações - ETESP CREA",
-      "Especialista em Administração de Engenharia"
-    ],
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop"
-  }
+export const stats = [
+  { label: "Anos", value: "15+" },
+  { label: "Projetos", value: "100+" },
+  { label: "Arquitetos", value: "30+" },
+  { label: "Prêmios", value: "15+" }
 ];
 
 export const projects = [
@@ -52,8 +32,8 @@ export const projects = [
     location: "São Paulo",
     architect: "Studio MK27",
     year: 2022,
-    description: "Residência de luxo com forte assinatura arquitetônica",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop",
+    area: "850m²",
+    image: "https://images.unsplash.com/photo-1724688078741-6d89e587e809",
     featured: true
   },
   {
@@ -61,10 +41,10 @@ export const projects = [
     title: "Triplex Cidade Jardim",
     category: "Residencial",
     location: "São Paulo",
-    architect: "Studio MK27",
+    architect: "Mauricio Nobrega",
     year: 2021,
-    description: "Apartamento triplex de alto padrão",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
+    area: "620m²",
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811",
     featured: true
   },
   {
@@ -72,10 +52,10 @@ export const projects = [
     title: "Fazenda Boa Vista",
     category: "Residencial",
     location: "Porto Feliz",
-    architect: "Castello Branco Arquitetura & Interiores",
+    architect: "Castello Branco Arquitetura",
     year: 2020,
-    description: "Casa sofisticada que une conforto, tecnologia e harmonia com o entorno natural",
-    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&h=600&fit=crop",
+    area: "1200m²",
+    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
     featured: true
   },
   {
@@ -85,9 +65,9 @@ export const projects = [
     location: "São Paulo",
     architect: "Candida Tabet Arquitetura",
     year: 2021,
-    description: "Projeto residencial com arquitetura autoral",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
-    featured: false
+    area: "750m²",
+    image: "https://images.unsplash.com/photo-1622015663319-e97e697503ee",
+    featured: true
   },
   {
     id: 5,
@@ -96,41 +76,41 @@ export const projects = [
     location: "São Paulo",
     architect: "Olegário de Sá",
     year: 2020,
-    description: "Cobertura duplex com acabamento premium",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop",
-    featured: false
+    area: "480m²",
+    image: "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg",
+    featured: true
   },
   {
     id: 6,
     title: "Casa do Lago",
     category: "Residencial",
     location: "São Paulo",
-    architect: "Augusto Perez e Dado Comini",
+    architect: "Augusto Perez",
     year: 2019,
-    description: "Residência integrada ao paisagismo",
-    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop",
-    featured: false
+    area: "920m²",
+    image: "https://images.unsplash.com/photo-1628012209120-d9db7abf7eab",
+    featured: true
   },
   {
     id: 7,
+    title: "Residência Baroneza",
+    category: "Residencial",
+    location: "São Paulo",
+    architect: "David Bastos",
+    year: 2020,
+    area: "680m²",
+    image: "https://images.unsplash.com/photo-1531971589569-0d9370cbe1e5",
+    featured: false
+  },
+  {
+    id: 8,
     title: "Triplex Panamby",
     category: "Residencial",
     location: "São Paulo",
     architect: "Cristina Casellato",
     year: 2021,
-    description: "Triplex com design contemporâneo",
-    image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop",
-    featured: false
-  },
-  {
-    id: 8,
-    title: "Casa PK Baroneza",
-    category: "Residencial",
-    location: "São Paulo",
-    architect: "David Bastos",
-    year: 2020,
-    description: "Casa de alto padrão construtivo",
-    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop",
+    area: "540m²",
+    image: "https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg",
     featured: false
   }
 ];
@@ -139,104 +119,43 @@ export const services = [
   {
     id: 1,
     title: "Construção Residencial",
-    description: "Construção de residências de luxo com forte assinatura arquitetônica e alto padrão construtivo.",
-    icon: "home"
+    description: "Residências de luxo com alto padrão construtivo"
   },
   {
     id: 2,
-    title: "Projetos Comerciais",
-    description: "Desenvolvimento de empreendimentos comerciais premiados nacional e internacionalmente.",
-    icon: "building"
-  },
-  {
-    id: 3,
     title: "Gestão Técnica",
-    description: "Compatibilização de projetos, gestão técnica de obras e comissionamento completo.",
-    icon: "clipboard-check"
+    description: "Compatibilização e gestão completa de obras"
   },
   {
-    id: 4,
+    id: 3,
     title: "Perícia Judicial",
-    description: "Atuação como peritos judiciais em varas estaduais e federais.",
-    icon: "scale"
-  },
-  {
-    id: 5,
-    title: "Infraestrutura Urbana",
-    description: "Obras de infraestrutura urbana e desenvolvimento de loteamentos.",
-    icon: "map"
-  },
-  {
-    id: 6,
-    title: "Análise Estrutural",
-    description: "Análise estrutural rigorosa e controle de qualidade com ensaios e amostras aprovadas.",
-    icon: "wrench"
-  }
-];
-
-export const testimonials = [
-  {
-    id: 1,
-    name: "Carlos Mendes",
-    role: "Proprietário",
-    project: "Casa Areia",
-    content: "A Mudare superou todas as expectativas. A atenção aos detalhes e o comprometimento com a qualidade são incomparáveis.",
-    rating: 5
-  },
-  {
-    id: 2,
-    name: "Ana Paula Silva",
-    role: "Arquiteta",
-    project: "Triplex Cidade Jardim",
-    content: "Trabalhar com a Mudare é ter a certeza de que cada especificação do projeto será executada com precisão e excelência.",
-    rating: 5
-  },
-  {
-    id: 3,
-    name: "Roberto Oliveira",
-    role: "Investidor",
-    project: "Fazenda Boa Vista",
-    content: "Profissionalismo, transparência e resultado excepcional. A Mudare transformou nosso projeto em realidade.",
-    rating: 5
-  }
-];
-
-export const processSteps = [
-  {
-    id: 1,
-    title: "Diagnóstico",
-    description: "Diagnóstico objetivo que define escopo, metas de desempenho e riscos."
-  },
-  {
-    id: 2,
-    title: "Compatibilização",
-    description: "Compatibilização rigorosa para eliminar interferências e otimizar custo e prazo."
-  },
-  {
-    id: 3,
-    title: "Planejamento",
-    description: "Planejamento do canteiro com cronograma físico financeiro e logística clara."
+    description: "Atuação em varas estaduais e federais"
   },
   {
     id: 4,
-    title: "Execução",
-    description: "Especificações fundamentadas em normas ABNT e controle de qualidade rigoroso."
-  },
-  {
-    id: 5,
-    title: "Comissionamento",
-    description: "Testes completos, documentação as built e manual do proprietário."
-  },
-  {
-    id: 6,
-    title: "Pós-Obra",
-    description: "Plano de manutenção e atendimento em garantia."
+    title: "Infraestrutura",
+    description: "Obras urbanas e desenvolvimento de loteamentos"
   }
 ];
 
-export const stats = [
-  { label: "Anos de Experiência", value: "15+" },
-  { label: "Projetos Concluídos", value: "100+" },
-  { label: "Arquitetos Parceiros", value: "30+" },
-  { label: "Prêmios", value: "15+" }
+export const teamMembers = [
+  {
+    id: 1,
+    name: "Walter Kovatch",
+    role: "Diretor Administrativo",
+    credentials: "Engenheiro Civil | Perito Federal | IBAPE/SP"
+  },
+  {
+    id: 2,
+    name: "Sergio Ramos",
+    role: "Diretor Técnico",
+    credentials: "Engenheiro Civil | ETESP CREA | Especialista"
+  }
+];
+
+export const values = [
+  "Qualidade",
+  "Precisão",
+  "Inovação",
+  "Transparência"
 ];

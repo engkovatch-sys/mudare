@@ -32,8 +32,13 @@ export const companyInfo = {
     city: "São Paulo",
     cep: "05467-002",
     phone: "+55 11 2476-9303",
-    email: "contato@mudare.eng.br",
+    email: "comercial@mudare.eng.br",
     website: "www.mudare.eng.br"
+  },
+  social: {
+    instagram: "https://www.instagram.com/mudareconstrutora/",
+    linkedin: "https://www.linkedin.com/company/mudare-construtora",
+    facebook: "https://www.facebook.com/mudareconstrutora"
   }
 };
 

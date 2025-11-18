@@ -143,8 +143,9 @@ const Home = () => {
               size="lg" 
               variant="outline" 
               className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-6 text-base"
+              onClick={() => window.location.href = `https://wa.me/551124769303?text=${encodeURIComponent('Olá! Gostaria de falar sobre um projeto.')}`}
             >
-              <a href="#contato">Fale Conosco</a>
+              Fale Conosco
             </Button>
           </div>
         </div>

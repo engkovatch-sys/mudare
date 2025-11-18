@@ -1,4 +1,4 @@
-// Mock data MUDARE - SEO Optimized
+// Mock data MUDARE - Premium & Minimalista (Curadoria Nizan Guanaes)
 
 export const companyInfo = {
   name: "MUDARE",
@@ -8,26 +8,24 @@ export const companyInfo = {
   hero: {
     title: "Construímos Mais Que Obras.",
     subtitle: "Realizamos Sonhos.",
-    description: "Construtora de casas de alto padrão em São Paulo. Há 15 anos transformando projetos residenciais e comerciais em patrimônios que emocionam, inspiram e duram gerações.",
-    seoKeywords: "construtora alto padrão são paulo, construir casa de luxo sp, obra residencial"
+    description: "Há 15 anos transformando projetos de arquitetura autoral em obras de referência. Parceiros dos principais arquitetos do Brasil."
   },
-  manifesto: "Acreditamos que construir não é apenas erguer paredes. É criar o cenário onde a vida acontece. Especializada em construção residencial de alto padrão, reforma de escritório corporativo e obras comerciais de luxo, transformamos cada detalhe em memória, cada espaço em experiência, cada projeto em legado.",
-  philosophy: "Construtora recomendada por arquitetos e proprietários exigentes, nascemos da convergência entre tradição e inovação. Nossa essência está em unir o conhecimento técnico consolidado à visão contemporânea da construção de casas de luxo, onde cada obra é tratada como única, especial e definitiva.",
-  approach: "Não fazemos concessões. Seja para construir casa de alto padrão, reforma comercial ou fit out de escritório corporativo, cada projeto recebe tecnologia avançada, planejamento milimétrico e uma equipe que entende que o resultado final não é apenas uma entrega - é a realização de um sonho.",
+  manifesto: "Acreditamos que construir é uma arte que exige técnica, precisão e paixão. Não somos apenas executores - somos parceiros de arquitetos que transformam visão em realidade, onde cada detalhe importa e cada projeto é tratado como único.",
+  philosophy: "Nascemos da convergência entre excelência técnica e sensibilidade estética. Trabalhamos lado a lado com os melhores arquitetos do país, respeitando cada linha do projeto, cada escolha de material, cada intenção arquitetônica.",
+  approach: "Nossa abordagem é baseada em três pilares: precisão técnica absoluta, respeito incondicional ao projeto arquitetônico e transparência total com clientes e arquitetos. Não fazemos concessões.",
   excellence: {
     title: "Excelência Não É Um Diferencial.",
     subtitle: "É Nossa Natureza.",
-    description: "Como melhor construtora residencial em São Paulo para projetos de arquiteto, cada material é criteriosamente selecionado. Cada detalhe é meticulosamente executado. Cada prazo é religiosamente cumprido. Porque sabemos que não construímos para nós - construímos para você, sua família e seu futuro."
+    description: "Parceiros de arquitetos como Studio MK27, Candida Tabet, Olegário de Sá e Castello Branco. Cada projeto é executado com a precisão que a arquitetura autoral exige. Sem improvisações, sem atalhos, sem meio termo."
   },
   values: [
-    "Paixão pelo que fazemos",
-    "Compromisso absoluto com a qualidade",
-    "Transparência em cada etapa",
-    "Inovação que faz diferença"
+    "Precisão Técnica",
+    "Respeito ao Projeto",
+    "Transparência",
+    "Paixão pela Excelência"
   ],
-  vision: "A cada entrega, não celebramos apenas mais uma obra concluída. Celebramos sonhos realizados, vidas transformadas e o privilégio de fazer parte da história de cada cliente.",
-  mission: "Transformar projeto em patrimônio. Transformar sonho em realidade. Mudar para melhor. Sempre.",
-  serviceAreas: ["Jardins", "Alphaville", "Cidade Jardim", "Morumbi", "Vila Nova Conceição", "Itaim Bibi", "Alto de Pinheiros"],
+  vision: "A cada entrega, celebramos a realização de uma visão arquitetônica transformada em edificação impecável.",
+  mission: "Transformar projeto em patrimônio. Transformar visão em realidade. Mudar para melhor. Sempre.",
   contact: {
     address: "Av. Diógenes Ribeiro de Lima, 1776 - conjunto 2",
     neighborhood: "Alto de Pinheiros",
@@ -40,10 +38,21 @@ export const companyInfo = {
 };
 
 export const stats = [
-  { label: "Anos de Paixão", value: "15+" },
-  { label: "Sonhos Realizados", value: "100+" },
-  { label: "Parcerias de Sucesso", value: "30+" },
-  { label: "Prêmios Conquistados", value: "15+" }
+  { label: "Anos", value: "15+" },
+  { label: "Projetos", value: "100+" },
+  { label: "Arquitetos", value: "30+" },
+  { label: "Prêmios", value: "15+" }
+];
+
+export const architects = [
+  "Studio MK27",
+  "Candida Tabet Arquitetura",
+  "Olegário de Sá",
+  "Castello Branco Arquitetura",
+  "Mauricio Nobrega",
+  "Augusto Perez",
+  "David Bastos",
+  "Cristina Casellato"
 ];
 
 export const teamMembers = [
@@ -51,7 +60,7 @@ export const teamMembers = [
     id: 1,
     name: "Walter Kovatch",
     role: "Diretor Administrativo",
-    bio: "Mais que números, gerencia sonhos com responsabilidade e paixão.",
+    bio: "Engenheiro civil com especialização em gestão de obras complexas.",
     credentials: [
       "Engenheiro Civil",
       "Especialista em Construção Civil",
@@ -64,7 +73,7 @@ export const teamMembers = [
     id: 2,
     name: "Sergio Ramos",
     role: "Diretor Técnico",
-    bio: "Transforma complexidade técnica em excelência tangível.",
+    bio: "Engenheiro civil especializado em arquitetura de alto padrão.",
     credentials: [
       "Engenheiro Civil",
       "Técnico em Edificações - ETESP CREA",
@@ -79,12 +88,12 @@ export const projects = [
     id: 1,
     title: "Residência Morumbi",
     category: "Residencial",
-    location: "São Paulo - Morumbi",
+    location: "São Paulo",
     architect: "Studio MK27",
     year: 2022,
     area: "850m²",
-    description: "Casa de alto padrão onde luxo encontra aconchego. Uma residência contemporânea que respira sofisticação em cada ambiente.",
-    story: "Transformamos um projeto de arquiteto em um lar que conta histórias. Cada detalhe foi pensado para criar momentos inesquecíveis.",
+    description: "Arquitetura contemporânea onde cada detalhe foi executado com precisão milimétrica.",
+    story: "Parceria com o Studio MK27 resultou em uma obra de referência que respeita cada linha do projeto original.",
     image: "https://customer-assets.emergentagent.com/job_portfolio-upgrade-19/artifacts/ewheq3u2_Residencia_Morumbi_02.jpg",
     featured: true,
     seoAlt: "Casa de alto padrão Morumbi - Construção residencial de luxo São Paulo"
@@ -97,8 +106,8 @@ export const projects = [
     architect: "Studio de Arquitetura",
     year: 2021,
     area: "320m²",
-    description: "Reforma comercial de alto padrão. Um espaço onde gastronomia e arquitetura se encontram em perfeita harmonia.",
-    story: "Criamos mais que um restaurante de luxo. Criamos uma experiência gastronômica completa.",
+    description: "Projeto comercial que une estética refinada e funcionalidade operacional.",
+    story: "Execução técnica impecável que respeitou os prazos sem comprometer a qualidade.",
     image: "https://customer-assets.emergentagent.com/job_portfolio-upgrade-19/artifacts/6qeg3nnv_Rest_Kinoshita_03.jpg",
     featured: true,
     seoAlt: "Reforma comercial alto padrão - Construção loja luxo São Paulo"
@@ -111,8 +120,8 @@ export const projects = [
     architect: "Candida Tabet Arquitetura",
     year: 2020,
     area: "1200m²",
-    description: "Reforma de escritório corporativo premiada. Honramos um legado construindo um espaço que inspira transformação.",
-    story: "Mais que uma obra premiada. Um projeto corporativo que carrega o sonho de transformar vidas através da educação.",
+    description: "Projeto institucional premiado que alia arquitetura contemporânea e funcionalidade.",
+    story: "Obra complexa executada em parceria com Candida Tabet, reconhecida nacional e internacionalmente.",
     image: "https://customer-assets.emergentagent.com/job_portfolio-upgrade-19/artifacts/xb03c03u_Ayrton_Senna_Instituto%2002.jpg",
     featured: true,
     seoAlt: "Reforma escritório corporativo São Paulo - Obra comercial alto padrão"
@@ -125,8 +134,8 @@ export const projects = [
     architect: "Olegário de Sá",
     year: 2021,
     area: "450m²",
-    description: "Fit out comercial com design autoral que transforma cada visita em uma experiência memorável.",
-    story: "Criamos um espaço de luxo onde marcas ganham vida e clientes se apaixonam.",
+    description: "Espaço comercial com design autoral e acabamentos premium.",
+    story: "Projeto executado em parceria com Olegário de Sá, respeitando cada especificação técnica.",
     image: "https://customer-assets.emergentagent.com/job_portfolio-upgrade-19/artifacts/tg3db9if_Kross_Atelier_IMG_9696.jpg",
     featured: true,
     seoAlt: "Fit out comercial São Paulo - Construção loja de luxo"
@@ -139,8 +148,8 @@ export const projects = [
     architect: "Castello Branco Arquitetura",
     year: 2020,
     area: "2800m²",
-    description: "Fit out de escritório corporativo de grande porte. Infraestrutura de classe mundial para uma marca global.",
-    story: "Construímos mais que um escritório. Criamos o ambiente onde inovação acontece todos os dias.",
+    description: "Infraestrutura corporativa de grande porte com complexidade técnica elevada.",
+    story: "Projeto que exigiu coordenação precisa de múltiplas especialidades técnicas.",
     image: "https://customer-assets.emergentagent.com/job_portfolio-upgrade-19/artifacts/u6pzs149_Eletrolux_03.jpg",
     featured: true,
     seoAlt: "Fit out escritório corporativo SP - Reforma comercial grande porte"
@@ -153,8 +162,8 @@ export const projects = [
     architect: "Augusto Perez e Dado Comini",
     year: 2019,
     area: "920m²",
-    description: "Arquitetura moderna onde natureza e design conversam em perfeita sintonia.",
-    story: "Cada janela é um quadro vivo. Cada ambiente, uma conexão com o entorno.",
+    description: "Arquitetura que dialoga com a natureza, executada com precisão técnica.",
+    story: "Obra que exigiu soluções técnicas customizadas para preservar o entorno natural.",
     image: "https://images.unsplash.com/photo-1628012209120-d9db7abf7eab",
     featured: true,
     seoAlt: "Casa contemporânea alto padrão - Arquitetura moderna São Paulo"
@@ -164,51 +173,27 @@ export const projects = [
 export const services = [
   {
     id: 1,
-    title: "Construção Residencial de Alto Padrão",
-    tagline: "Seu lar, nossa missão",
-    description: "Especialistas em construir casas de luxo em São Paulo. Construímos residências que vão além do luxo - criamos lares onde memórias se transformam em legado. Atendemos Jardins, Alphaville, Cidade Jardim, Morumbi e toda região.",
-    emotional: "Porque sua casa não é apenas onde você mora. É onde você vive.",
-    keywords: "construir casa alto padrão, construtora residencial são paulo, casa de luxo"
+    title: "Construção Residencial",
+    description: "Execução de projetos residenciais de arquitetura autoral com precisão técnica absoluta.",
+    technical: "Gestão completa de obra, coordenação de especialidades, controle de qualidade rigoroso."
   },
   {
     id: 2,
-    title: "Reforma Comercial e Fit Out",
-    tagline: "Espaços que vendem mais que produtos",
-    description: "Reforma de loja de luxo, fit out comercial e construção de espaços que contam histórias, conquistam clientes e fortalecem marcas. Excelência em cada detalhe.",
-    emotional: "Seu espaço é o primeiro contato com seu cliente. Faça valer.",
-    keywords: "reforma comercial alto padrão, fit out são paulo, construção loja luxo"
+    title: "Obras Comerciais",
+    description: "Projetos comerciais que aliam estética contemporânea e funcionalidade operacional.",
+    technical: "Fit out completo, coordenação com arquitetura de interiores, gestão de prazos."
   },
   {
     id: 3,
-    title: "Reforma de Escritório Corporativo",
-    tagline: "Onde grandes ideias ganham forma",
-    description: "Fit out de escritório corporativo em São Paulo. Desenvolvemos infraestruturas que inspiram produtividade e refletem a grandeza da sua empresa. Especialistas em obras corporativas.",
-    emotional: "Porque sua empresa merece um espaço à altura dos seus sonhos.",
-    keywords: "reforma escritório corporativo sp, fit out escritório, obra corporativa"
+    title: "Infraestrutura Corporativa",
+    description: "Obras corporativas de alta complexidade técnica e grande porte.",
+    technical: "Gestão de múltiplas especialidades, coordenação BIM, comissionamento."
   },
   {
     id: 4,
-    title: "Administração de Obra",
-    tagline: "Você sonha. Nós realizamos.",
-    description: "Construtora para projeto de arquiteto. Da concepção à entrega das chaves, cuidamos de cada detalhe. Administração de obra completa para que você só precise se preocupar em curtir o resultado.",
-    emotional: "Construir é nossa especialidade. Realizar sonhos, nossa paixão.",
-    keywords: "administração de obra, construtora para arquiteto, gestão de obra"
-  },
-  {
-    id: 5,
-    title: "Perícia Técnica",
-    tagline: "Excelência reconhecida",
-    description: "Perícia judicial que alia experiência técnica à responsabilidade de decisões que impactam vidas.",
-    emotional: "Quando a verdade técnica faz a diferença.",
-    keywords: "perícia técnica construção, perito judicial obras"
-  },
-  {
-    id: 6,
-    title: "Infraestrutura",
-    tagline: "Construindo o futuro das cidades",
-    description: "Obras de infraestrutura e loteamentos que transformam comunidades e criam oportunidades.",
-    emotional: "Porque grandes cidades começam com grandes construções.",
-    keywords: "obra infraestrutura, loteamento são paulo"
+    title: "Administração Técnica",
+    description: "Gestão técnica completa para projetos de arquitetos.",
+    technical: "Compatibilização de projetos, controle de custos, coordenação de equipes."
   }
 ];
 
@@ -216,50 +201,38 @@ export const processSteps = [
   {
     id: 1,
     number: "01",
-    title: "Sonhe",
-    subtitle: "Diagnóstico Estratégico",
-    description: "Entendemos seu sonho em profundidade. Cada desejo, cada expectativa, cada detalhe que importa para você.",
-    technical: "Diagnóstico completo de escopo, metas e riscos."
+    title: "Análise",
+    description: "Estudo aprofundado do projeto arquitetônico e levantamento de complexidades técnicas."
   },
   {
     id: 2,
     number: "02",
-    title: "Planeje",
-    subtitle: "Compatibilização Inteligente",
-    description: "Transformamos sonhos em projetos viáveis. Eliminamos problemas antes que eles aconteçam.",
-    technical: "Compatibilização rigorosa para otimizar custo e prazo."
+    title: "Compatibilização",
+    description: "Coordenação de todas as especialidades técnicas para eliminar interferências."
   },
   {
     id: 3,
     number: "03",
-    title: "Prepare",
-    subtitle: "Orçamento Transparente",
-    description: "Quanto custa construir casa de alto padrão por m2? Fornecemos orçamento detalhado e transparente. Sem surpresas, sem improvisações.",
-    technical: "Cronograma físico-financeiro e logística detalhada."
+    title: "Planejamento",
+    description: "Cronograma detalhado, logística de obra e planejamento financeiro."
   },
   {
     id: 4,
     number: "04",
-    title: "Execute",
-    subtitle: "Perfeição em Cada Detalhe",
-    description: "Onde o sonho ganha forma. Materiais premium, mão de obra especializada, controle absoluto de qualidade.",
-    technical: "Especificações ABNT e controle rigoroso de qualidade."
+    title: "Execução",
+    description: "Construção com controle de qualidade rigoroso e respeito absoluto ao projeto."
   },
   {
     id: 5,
     number: "05",
-    title: "Entregue",
-    subtitle: "Finalização Impecável",
-    description: "O momento mágico. Cada acabamento perfeito, cada sistema testado, tudo pronto para você.",
-    technical: "Comissionamento completo com documentação as built."
+    title: "Comissionamento",
+    description: "Testes, verificações finais e documentação as built completa."
   },
   {
     id: 6,
     number: "06",
-    title: "Cuide",
-    subtitle: "Parceria Duradoura",
-    description: "Nossa relação não termina na entrega. Estamos aqui para garantir que seu patrimônio permaneça perfeito.",
-    technical: "Manutenção programada e garantia estendida."
+    title: "Garantia",
+    description: "Suporte técnico pós-obra e manutenção preventiva."
   }
 ];
 
@@ -269,7 +242,7 @@ export const testimonials = [
     name: "Carlos Mendes",
     role: "Proprietário",
     project: "Residência Morumbi",
-    content: "A melhor construtora residencial de São Paulo que já trabalhei. A Mudare não construiu apenas minha casa. Construiu o lar onde minha família cria as mais belas memórias.",
+    content: "A MUDARE executou nosso projeto com uma precisão que superou expectativas. Cada detalhe foi tratado com o cuidado que uma obra de arquitetura autoral exige.",
     rating: 5
   },
   {
@@ -277,7 +250,7 @@ export const testimonials = [
     name: "Ana Paula Silva",
     role: "Arquiteta",
     project: "Instituto Ayrton Senna",
-    content: "Construtora recomendada para projetos de arquiteto. A Mudare transformou cada linha do projeto em realidade com precisão e dedicação que raramente vejo.",
+    content: "Parceria verdadeira. A MUDARE não apenas executa - compreende e respeita cada decisão de projeto. Profissionalismo raro no mercado.",
     rating: 5
   },
   {
@@ -285,7 +258,7 @@ export const testimonials = [
     name: "Roberto Oliveira",
     role: "Diretor",
     project: "Electrolux",
-    content: "Reforma de escritório corporativo excepcional. Profissionalismo e transparência do início ao fim. Nosso espaço é motivo de orgulho.",
+    content: "Gestão técnica impecável em uma obra de grande complexidade. Transparência e compromisso com qualidade do início ao fim.",
     rating: 5
   }
 ];
@@ -298,52 +271,47 @@ export const processImages = [
 
 export const whyMudare = [
   {
-    title: "Paixão",
-    description: "Não fazemos obras. Realizamos sonhos. E isso faz toda a diferença."
+    title: "Precisão Técnica",
+    description: "Excelência na execução de projetos complexos."
   },
   {
-    title: "Excelência",
-    description: "Não aceitamos o 'quase perfeito'. Para nós, só existe o impecável."
+    title: "Parceria",
+    description: "Trabalhamos lado a lado com os melhores arquitetos."
   },
   {
     title: "Transparência",
-    description: "Você sabe de tudo, em tempo real. Sem surpresas, sem sustos."
+    description: "Comunicação clara em todas as etapas do projeto."
   },
   {
     title: "Compromisso",
-    description: "Prazo é sagrado. Qualidade é inegociável. Sua satisfação é nossa meta."
+    description: "Prazo e qualidade são inegociáveis."
   }
 ];
 
 export const faq = [
   {
     id: 1,
-    question: "Qual a diferença entre construtora e empreiteira?",
-    answer: "A construtora oferece serviço completo com gestão técnica, engenharia especializada, controle de qualidade e garantia. A MUDARE é uma construtora de alto padrão com engenheiros experientes que gerenciam todo o processo, garantindo excelência em cada etapa."
+    question: "A MUDARE trabalha com projetos de arquitetos?",
+    answer: "Sim. Nossa especialidade é executar projetos de arquitetura autoral. Trabalhamos em parceria com arquitetos como Studio MK27, Candida Tabet, Olegário de Sá, Castello Branco e outros renomados profissionais, respeitando cada decisão de projeto e garantindo execução técnica impecável."
   },
   {
     id: 2,
-    question: "Como escolher uma construtora?",
-    answer: "Avalie experiência, portfólio de obras similares, reputação no mercado, transparência no orçamento e recomendações de arquitetos. A MUDARE tem 15 anos de história, mais de 100 projetos entregues e parcerias com os melhores arquitetos de São Paulo."
+    question: "Qual o diferencial da MUDARE?",
+    answer: "Nossa abordagem é baseada em três pilares: precisão técnica absoluta, respeito incondicional ao projeto arquitetônico e transparência total. Não somos apenas executores - somos parceiros que compreendem a importância de cada detalhe em uma obra de arquitetura autoral."
   },
   {
     id: 3,
-    question: "Administração de obra vale a pena?",
-    answer: "Sim! A administração profissional de obra garante controle de custos, prazos cumpridos, qualidade superior e transparência total. A MUDARE oferece gestão completa do seu projeto, cuidando de cada detalhe para você só curtir o resultado."
+    question: "Como funciona a administração técnica de obras?",
+    answer: "Oferecemos gestão técnica completa: compatibilização de projetos, coordenação de especialidades, controle de qualidade, gestão de prazos e custos. O arquiteto mantém controle criativo enquanto garantimos a execução técnica perfeita."
   },
   {
     id: 4,
-    question: "Quanto custa construir uma casa de alto padrão por m2?",
-    answer: "O custo varia conforme acabamentos, complexidade do projeto e localização. Na MUDARE, fornecemos orçamento detalhado e transparente para cada projeto. Entre em contato para uma avaliação personalizada do seu sonho."
+    question: "Quais tipos de projeto a MUDARE executa?",
+    answer: "Executamos projetos residenciais, comerciais e corporativos de alto padrão. Nossa expertise está em obras que exigem precisão técnica elevada e atenção a detalhes, desde residências de arquitetura contemporânea até infraestruturas corporativas complexas."
   },
   {
     id: 5,
-    question: "A MUDARE trabalha com projetos de arquitetos?",
-    answer: "Sim! Somos construtora recomendada por arquitetos e especialistas em executar projetos autorais. Trabalhamos em parceria com os melhores escritórios de arquitetura de São Paulo, transformando cada linha do projeto em realidade com precisão."
-  },
-  {
-    id: 6,
-    question: "Quais regiões de São Paulo a MUDARE atende?",
-    answer: "Atendemos toda São Paulo, com especialização em áreas nobres como Jardins, Alphaville, Cidade Jardim, Morumbi, Vila Nova Conceição, Itaim Bibi e Alto de Pinheiros."
+    question: "Como solicitar um orçamento?",
+    answer: "Entre em contato pelo telefone +55 11 2476-9303 ou email contato@mudare.eng.br. Analisamos o projeto arquitetônico e fornecemos orçamento detalhado com cronograma e especificações técnicas."
   }
 ];

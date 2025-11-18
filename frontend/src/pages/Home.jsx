@@ -10,9 +10,7 @@ import {
   MapPin, 
   Menu, 
   X,
-  Heart,
   Star,
-  Sparkles,
   ChevronDown,
   ChevronUp
 } from 'lucide-react';
@@ -26,7 +24,8 @@ import {
   testimonials,
   processImages,
   whyMudare,
-  faq
+  faq,
+  architects
 } from '../mockData';
 
 const Home = () => {
@@ -67,7 +66,7 @@ const Home = () => {
             <div className="flex items-center">
               <img 
                 src="/logo-mudare.png" 
-                alt="MUDARE Construtora de Alto Padrão São Paulo" 
+                alt="MUDARE Construtora de Alto Padrão" 
                 className="h-12 w-auto"
               />
             </div>
@@ -78,14 +77,11 @@ const Home = () => {
               <a href="#projetos" className={`text-sm font-medium transition-colors ${
                 scrollY > 50 ? 'text-gray-700 hover:text-[#C87533]' : 'text-white hover:text-white/80'
               }`}>Projetos</a>
-              <a href="#servicos" className={`text-sm font-medium transition-colors ${
+              <a href="#arquitetos" className={`text-sm font-medium transition-colors ${
                 scrollY > 50 ? 'text-gray-700 hover:text-[#C87533]' : 'text-white hover:text-white/80'
-              }`}>Serviços</a>
-              <a href="#faq" className={`text-sm font-medium transition-colors ${
-                scrollY > 50 ? 'text-gray-700 hover:text-[#C87533]' : 'text-white hover:text-white/80'
-              }`}>FAQ</a>
+              }`}>Arquitetos</a>
               <Button className="bg-[#C87533] hover:bg-[#B06429] text-white">
-                <a href="#contato">Vamos Conversar</a>
+                <a href="#contato">Contato</a>
               </Button>
             </nav>
             <button 
@@ -106,8 +102,7 @@ const Home = () => {
           <nav className="flex flex-col items-center space-y-8 py-12">
             <a href="#sobre" className="text-xl text-gray-900" onClick={() => setIsMenuOpen(false)}>Sobre</a>
             <a href="#projetos" className="text-xl text-gray-900" onClick={() => setIsMenuOpen(false)}>Projetos</a>
-            <a href="#servicos" className="text-xl text-gray-900" onClick={() => setIsMenuOpen(false)}>Serviços</a>
-            <a href="#faq" className="text-xl text-gray-900" onClick={() => setIsMenuOpen(false)}>FAQ</a>
+            <a href="#arquitetos" className="text-xl text-gray-900" onClick={() => setIsMenuOpen(false)}>Arquitetos</a>
             <a href="#contato" className="text-xl text-gray-900" onClick={() => setIsMenuOpen(false)}>Contato</a>
           </nav>
         </div>
@@ -127,7 +122,7 @@ const Home = () => {
         
         <div className="relative z-10 text-center text-white px-6 max-w-5xl">
           <Badge className="mb-6 bg-[#C87533]/90 text-white hover:bg-[#C87533] border-none px-4 py-2 text-sm">
-            Construtora de Alto Padrão São Paulo - Desde {companyInfo.foundedYear}
+            Desde {companyInfo.foundedYear}
           </Badge>
           <h1 className="text-5xl md:text-7xl font-bold mb-4 leading-tight">
             {companyInfo.hero.title}
@@ -135,11 +130,8 @@ const Home = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#C87533]">
             {companyInfo.hero.subtitle}
           </h2>
-          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed">
             {companyInfo.hero.description}
-          </p>
-          <p className="text-2xl md:text-3xl font-light italic mb-12 text-[#C87533]">
-            {companyInfo.slogan}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
@@ -147,7 +139,7 @@ const Home = () => {
               className="bg-[#C87533] hover:bg-[#B06429] text-white px-8 py-6 text-base"
             >
               <a href="#projetos" className="flex items-center gap-2">
-                Ver Nossos Projetos <ArrowRight className="w-5 h-5" />
+                Ver Projetos <ArrowRight className="w-5 h-5" />
               </a>
             </Button>
             <Button 
@@ -155,7 +147,7 @@ const Home = () => {
               variant="outline" 
               className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-6 text-base"
             >
-              <a href="#contato">Solicitar Orçamento</a>
+              <a href="#contato">Fale Conosco</a>
             </Button>
           </div>
         </div>
@@ -182,41 +174,24 @@ const Home = () => {
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-5xl font-bold text-[#C87533] mb-2">{stat.value}</div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
+                <div className="text-sm text-gray-600 uppercase tracking-wider">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Service Areas */}
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="text-center">
-            <p className="text-gray-600 mb-3">Atendemos as principais regiões de São Paulo:</p>
-            <div className="flex flex-wrap justify-center gap-3">
-              {companyInfo.serviceAreas.map((area, index) => (
-                <Badge key={index} variant="outline" className="border-[#C87533] text-[#C87533]">
-                  {area}
-                </Badge>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Manifesto Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <Sparkles className="w-12 h-12 text-[#C87533] mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-              O Que Nos Move
+              Filosofia
             </h2>
             <p className="text-xl text-gray-700 leading-relaxed mb-8">
               {companyInfo.manifesto}
             </p>
-            <p className="text-2xl font-bold text-[#C87533] italic">
+            <p className="text-2xl font-light text-gray-600 italic">
               {companyInfo.slogan}
             </p>
           </div>
@@ -224,16 +199,15 @@ const Home = () => {
       </section>
 
       {/* Sobre Section */}
-      <section id="sobre" className="py-24 bg-gray-50">
+      <section id="sobre" className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
               <div>
-                <Badge className="mb-4 bg-[#C87533]/10 text-[#C87533] hover:bg-[#C87533]/20 border-none">Nossa História</Badge>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                  Tradição Que Inova.
+                  Excelência Técnica.
                   <br />
-                  Inovação Que Respeita.
+                  Sensibilidade Estética.
                 </h2>
                 <p className="text-gray-600 mb-6 leading-relaxed text-lg">
                   {companyInfo.philosophy}
@@ -243,8 +217,8 @@ const Home = () => {
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   {whyMudare.map((item, index) => (
-                    <div key={index} className="p-4 bg-white rounded-lg shadow-sm">
-                      <h4 className="font-bold text-[#C87533] mb-2">{item.title}</h4>
+                    <div key={index} className="p-4 bg-gray-50 rounded-lg">
+                      <h4 className="font-bold text-gray-900 mb-2">{item.title}</h4>
                       <p className="text-sm text-gray-600">{item.description}</p>
                     </div>
                   ))}
@@ -254,7 +228,7 @@ const Home = () => {
                 <div className="aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
                   <img 
                     src="https://images.unsplash.com/photo-1599995903128-531fc7fb694b"
-                    alt="Obra de alto padrão MUDARE Construtora São Paulo"
+                    alt="Obra MUDARE Construtora"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -277,9 +251,6 @@ const Home = () => {
             <p className="text-xl leading-relaxed mb-8">
               {companyInfo.excellence.description}
             </p>
-            <p className="text-lg italic text-gray-300">
-              {companyInfo.vision}
-            </p>
           </div>
         </div>
       </section>
@@ -288,10 +259,9 @@ const Home = () => {
       <section id="projetos" className="py-24 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="mb-16 text-center">
-            <Badge className="mb-4 bg-[#C87533]/10 text-[#C87533] hover:bg-[#C87533]/20 border-none">Portfólio</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Projetos em Destaque</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Projetos</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Obras residenciais, comerciais e corporativas de alto padrão em São Paulo
+              Obras residenciais, comerciais e corporativas executadas com precisão técnica
             </p>
           </div>
 
@@ -322,7 +292,6 @@ const Home = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                 </div>
                 <div className={index % 2 === 0 ? 'order-2' : 'order-1'}>
@@ -331,15 +300,11 @@ const Home = () => {
                   </Badge>
                   <h3 className="text-3xl font-bold text-gray-900 mb-4">{project.title}</h3>
                   <p className="text-gray-600 mb-4 leading-relaxed text-lg">{project.description}</p>
-                  <p className="text-gray-500 mb-6 italic leading-relaxed">{project.story}</p>
+                  <p className="text-gray-500 mb-6 leading-relaxed">{project.story}</p>
                   <div className="space-y-2 text-gray-700 text-sm">
                     <div className="flex items-center gap-2">
                       <span className="font-medium">Arquiteto:</span>
                       <span>{project.architect}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="font-medium">Localização:</span>
-                      <span>{project.location}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="font-medium">Área:</span>
@@ -357,43 +322,20 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Processo Section */}
-      <section className="py-24 bg-white">
+      {/* Arquitetos Parceiros */}
+      <section id="arquitetos" className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-16">
-              <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-200 border-none">Nosso Processo</Badge>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Do Sonho à Realidade</h2>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Arquitetos Parceiros</h2>
               <p className="text-xl text-gray-600">
-                {companyInfo.mission}
+                Trabalhamos com os principais nomes da arquitetura brasileira
               </p>
             </div>
-
-            <div className="space-y-8">
-              {processSteps.map((step, index) => (
-                <div key={step.id}>
-                  <Card className="border-none shadow-sm hover:shadow-lg transition-all duration-300">
-                    <CardContent className="p-8">
-                      <div className="flex gap-6">
-                        <div className="flex-shrink-0">
-                          <div className="w-16 h-16 bg-[#C87533] text-white rounded-full flex items-center justify-center text-xl font-bold">
-                            {step.number}
-                          </div>
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="text-2xl font-bold text-gray-900 mb-1">{step.title}</h3>
-                          <p className="text-[#C87533] font-medium mb-3">{step.subtitle}</p>
-                          <p className="text-gray-700 leading-relaxed mb-2">{step.description}</p>
-                          <p className="text-sm text-gray-500 italic">{step.technical}</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                  {index < processSteps.length - 1 && (
-                    <div className="flex justify-center my-4">
-                      <ArrowRight className="w-6 h-6 text-[#C87533] rotate-90" />
-                    </div>
-                  )}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {architects.map((architect, index) => (
+                <div key={index} className="text-center p-4">
+                  <p className="text-gray-700 font-medium">{architect}</p>
                 </div>
               ))}
             </div>
@@ -401,15 +343,43 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Processo Section */}
+      <section className="py-24 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Processo</h2>
+              <p className="text-xl text-gray-600">
+                {companyInfo.mission}
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {processSteps.map((step) => (
+                <Card key={step.id} className="border-none shadow-sm hover:shadow-md transition-shadow">
+                  <CardContent className="p-8">
+                    <div className="w-12 h-12 bg-[#C87533] text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">
+                      {step.number}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process Images */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-4">
             {processImages.map((image, index) => (
               <div key={index} className="relative aspect-square overflow-hidden bg-gray-200 rounded-lg group">
                 <img 
                   src={image}
-                  alt={`Obra de alto padrão MUDARE - Processo ${index + 1}`}
+                  alt={`Obra MUDARE ${index + 1}`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   loading="lazy"
                 />
@@ -420,23 +390,90 @@ const Home = () => {
       </section>
 
       {/* Serviços Section */}
-      <section id="servicos" className="py-24 bg-white">
+      <section id="servicos" className="py-24 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <Badge className="mb-4 bg-[#C87533]/10 text-[#C87533] hover:bg-[#C87533]/20 border-none">Serviços</Badge>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Como Podemos Ajudar</h2>
-              <p className="text-xl text-gray-600">Soluções completas em construção de alto padrão</p>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Serviços</h2>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 gap-8">
               {services.map((service) => (
-                <Card key={service.id} className="border-none shadow-sm hover:shadow-lg transition-all duration-300 group">
+                <Card key={service.id} className="border-none shadow-sm hover:shadow-md transition-shadow">
                   <CardContent className="p-8">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
-                    <p className="text-[#C87533] font-medium text-sm mb-4">{service.tagline}</p>
-                    <p className="text-gray-600 leading-relaxed mb-4">{service.description}</p>
-                    <p className="text-sm text-gray-500 italic">{service.emotional}</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                    <p className="text-gray-600 leading-relaxed mb-3">{service.description}</p>
+                    <p className="text-sm text-gray-500">{service.technical}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Equipe Section */}
+      <section id="equipe" className="py-24 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Equipe</h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12">
+              {teamMembers.map((member) => (
+                <Card key={member.id} className="border-none shadow-md hover:shadow-lg transition-shadow">
+                  <CardContent className="p-10 text-center">
+                    <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[#C87533]/20">
+                      <img 
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                    <p className="text-[#C87533] font-medium mb-4">{member.role}</p>
+                    <p className="text-gray-600 mb-6">{member.bio}</p>
+                    <Separator className="my-6" />
+                    <div className="text-left space-y-2">
+                      {member.credentials.map((credential, index) => (
+                        <div key={index} className="text-sm text-gray-600">
+                          • {credential}
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Depoimentos Section */}
+      <section className="py-24 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Depoimentos</h2>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial) => (
+                <Card key={testimonial.id} className="border-none shadow-md hover:shadow-lg transition-shadow">
+                  <CardContent className="p-8">
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 fill-[#C87533] text-[#C87533]" />
+                      ))}
+                    </div>
+                    <p className="text-gray-700 mb-6 leading-relaxed">"{testimonial.content}"</p>
+                    <div>
+                      <div className="font-bold text-gray-900">{testimonial.name}</div>
+                      <div className="text-sm text-gray-600">{testimonial.role}</div>
+                      <div className="text-sm text-[#C87533] mt-1">{testimonial.project}</div>
+                    </div>
                   </CardContent>
                 </Card>
               ))}
@@ -446,13 +483,11 @@ const Home = () => {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-24 bg-gray-50">
+      <section id="faq" className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <Badge className="mb-4 bg-[#C87533]/10 text-[#C87533] hover:bg-[#C87533]/20 border-none">Dúvidas Frequentes</Badge>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Perguntas e Respostas</h2>
-              <p className="text-xl text-gray-600">Tudo o que você precisa saber sobre construção de alto padrão</p>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Perguntas Frequentes</h2>
             </div>
 
             <div className="space-y-4">
@@ -483,103 +518,18 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Equipe Section */}
-      <section id="equipe" className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-200 border-none">Liderança</Badge>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Quem Faz Acontecer</h2>
-              <p className="text-xl text-gray-600">
-                Engenheiros apaixonados pela arte de construir
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-12">
-              {teamMembers.map((member) => (
-                <Card key={member.id} className="border-none shadow-md hover:shadow-xl transition-all duration-300">
-                  <CardContent className="p-10 text-center">
-                    <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[#C87533]/20">
-                      <img 
-                        src={member.image}
-                        alt={`${member.name} - ${member.role} MUDARE Construtora`}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                    <p className="text-[#C87533] font-medium mb-4">{member.role}</p>
-                    <p className="text-gray-600 italic mb-6">{member.bio}</p>
-                    <Separator className="my-6" />
-                    <div className="text-left space-y-3">
-                      {member.credentials.map((credential, index) => (
-                        <div key={index} className="flex items-start gap-3">
-                          <Heart className="w-4 h-4 text-[#C87533] mt-1 flex-shrink-0" />
-                          <span className="text-sm text-gray-600">{credential}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Depoimentos Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <Badge className="mb-4 bg-[#C87533]/10 text-[#C87533] hover:bg-[#C87533]/20 border-none">Depoimentos</Badge>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Quem Confia, Recomenda</h2>
-              <p className="text-xl text-gray-600">Construtora recomendada por arquitetos e clientes exigentes</p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {testimonials.map((testimonial) => (
-                <Card key={testimonial.id} className="border-none shadow-md hover:shadow-xl transition-all duration-300">
-                  <CardContent className="p-8">
-                    <div className="flex gap-1 mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-[#C87533] text-[#C87533]" />
-                      ))}
-                    </div>
-                    <p className="text-gray-700 mb-6 leading-relaxed">"{testimonial.content}"</p>
-                    <div>
-                      <div className="font-bold text-gray-900">{testimonial.name}</div>
-                      <div className="text-sm text-gray-600">{testimonial.role}</div>
-                      <div className="text-sm text-[#C87533] mt-1 font-medium">{testimonial.project}</div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23C87533" fill-opacity="0.4"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
-          }} />
-        </div>
-        <div className="container mx-auto px-6 text-center relative z-10">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">Pronto Para Construir Seu Sonho?</h2>
+      <section className="py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6">Vamos Conversar?</h2>
           <p className="text-2xl md:text-3xl font-light text-[#C87533] mb-8">
             {companyInfo.slogan}
           </p>
           <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-            Construtora de alto padrão em São Paulo. Vamos transformar seu projeto em realidade.
+            Entre em contato para discutir seu projeto
           </p>
           <Button size="lg" className="bg-[#C87533] hover:bg-[#B06429] text-white px-10 py-7 text-lg">
-            <a href="#contato" className="flex items-center gap-2">
-              <Heart className="w-6 h-6" />
-              Solicitar Orçamento Agora
-            </a>
+            <a href="#contato">Entrar em Contato</a>
           </Button>
         </div>
       </section>
@@ -592,22 +542,21 @@ const Home = () => {
               <img src="/logo-mudare.png" alt="MUDARE Construtora" className="h-12 mb-4" />
               <p className="text-[#C87533] italic mb-4">{companyInfo.slogan}</p>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Construtora de alto padrão em São Paulo. Especializada em construção residencial, reforma comercial e obras corporativas.
+                Construtora de alto padrão especializada em arquitetura autoral
               </p>
             </div>
 
             <div>
-              <h4 className="text-lg font-bold mb-4">Links Rápidos</h4>
+              <h4 className="text-lg font-bold mb-4">Navegação</h4>
               <ul className="space-y-2">
                 <li><a href="#sobre" className="text-gray-400 hover:text-[#C87533] transition-colors">Sobre</a></li>
                 <li><a href="#projetos" className="text-gray-400 hover:text-[#C87533] transition-colors">Projetos</a></li>
-                <li><a href="#servicos" className="text-gray-400 hover:text-[#C87533] transition-colors">Serviços</a></li>
-                <li><a href="#faq" className="text-gray-400 hover:text-[#C87533] transition-colors">FAQ</a></li>
+                <li><a href="#arquitetos" className="text-gray-400 hover:text-[#C87533] transition-colors">Arquitetos</a></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="text-lg font-bold mb-4">Fale Conosco</h4>
+              <h4 className="text-lg font-bold mb-4">Contato</h4>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-[#C87533] flex-shrink-0 mt-1" />
@@ -639,7 +588,6 @@ const Home = () => {
             <p className="mb-2">
               © {new Date().getFullYear()} MUDARE Construtora. Todos os direitos reservados.
             </p>
-            <p className="text-xs mb-2">Construtora de Alto Padrão | São Paulo | Jardins | Alphaville | Cidade Jardim</p>
             <p className="text-[#C87533] italic">{companyInfo.slogan}</p>
           </div>
         </div>

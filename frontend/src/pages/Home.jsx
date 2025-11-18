@@ -80,8 +80,11 @@ const Home = () => {
               <a href="#arquitetos" className={`text-sm font-medium transition-colors ${
                 scrollY > 50 ? 'text-gray-700 hover:text-[#C87533]' : 'text-white hover:text-white/80'
               }`}>Arquitetos</a>
-              <Button className="bg-[#C87533] hover:bg-[#B06429] text-white">
-                <a href="#contato">Contato</a>
+              <Button 
+                className="bg-[#C87533] hover:bg-[#B06429] text-white"
+                onClick={() => window.location.href = `https://wa.me/551124769303?text=${encodeURIComponent('Olá! Gostaria de falar sobre um projeto.')}`}
+              >
+                Contato
               </Button>
             </nav>
             <button 

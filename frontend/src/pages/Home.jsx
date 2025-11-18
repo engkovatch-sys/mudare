@@ -10,19 +10,20 @@ import {
   MapPin, 
   Menu, 
   X,
-  CheckCircle2,
-  Star
+  Heart,
+  Star,
+  Sparkles
 } from 'lucide-react';
 import { 
   companyInfo, 
   projects, 
   services, 
   stats, 
-  teamMembers, 
-  specializations,
+  teamMembers,
   processSteps,
   testimonials,
-  processImages
+  processImages,
+  whyMudare
 } from '../mockData';
 
 const Home = () => {
@@ -37,11 +38,10 @@ const Home = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Auto-rotate hero images
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveProject((prev) => (prev + 1) % projects.filter(p => p.featured).length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(interval);
   }, []);
 
@@ -58,19 +58,21 @@ const Home = () => {
       <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrollY > 50 ? 'bg-white shadow-sm' : 'bg-transparent'
       }`}>
-        <div className="container mx-auto px-6 py-5">
+        <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className={`text-2xl font-bold tracking-tight transition-colors ${
-                scrollY > 50 ? 'text-gray-900' : 'text-white'
-              }`}>
-                {companyInfo.name}
-              </h1>
-              <p className={`text-xs transition-colors ${
-                scrollY > 50 ? 'text-gray-600' : 'text-white/90'
-              }`}>
-                {companyInfo.tagline}
-              </p>
+            <div className="flex items-center gap-3">
+              <img 
+                src="/logo-mudare.png" 
+                alt="MUDARE" 
+                className="h-12 w-auto"
+              />
+              <div className="hidden md:block">
+                <p className={`text-xs italic transition-colors ${
+                  scrollY > 50 ? 'text-[#C87533]' : 'text-white'
+                }`}>
+                  {companyInfo.slogan}
+                </p>
+              </div>
             </div>
             <nav className="hidden md:flex items-center space-x-8">
               <a href="#sobre" className={`text-sm font-medium transition-colors ${
@@ -86,7 +88,7 @@ const Home = () => {
                 scrollY > 50 ? 'text-gray-700 hover:text-[#C87533]' : 'text-white hover:text-white/80'
               }`}>Equipe</a>
               <Button className="bg-[#C87533] hover:bg-[#B06429] text-white">
-                <a href="#contato">Contato</a>
+                <a href="#contato">Vamos Conversar</a>
               </Button>
             </nav>
             <button 
@@ -123,34 +125,40 @@ const Home = () => {
             transform: `scale(${1 + scrollY * 0.0003})`
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80"></div>
         </div>
         
         <div className="relative z-10 text-center text-white px-6 max-w-5xl">
-          <Badge className="mb-6 bg-[#C87533]/90 text-white hover:bg-[#C87533] border-none px-4 py-2">
-            Fundada em {companyInfo.foundedYear}
+          <Badge className="mb-6 bg-[#C87533]/90 text-white hover:bg-[#C87533] border-none px-4 py-2 text-sm">
+            Desde {companyInfo.foundedYear} Transformando Sonhos em Realidade
           </Badge>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 leading-tight">
             {companyInfo.hero.title}
           </h1>
-          <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#C87533]">
+            {companyInfo.hero.subtitle}
+          </h2>
+          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
             {companyInfo.hero.description}
+          </p>
+          <p className="text-2xl md:text-3xl font-light italic mb-12 text-[#C87533]">
+            {companyInfo.slogan}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
-              className="bg-[#C87533] hover:bg-[#B06429] text-white px-8"
+              className="bg-[#C87533] hover:bg-[#B06429] text-white px-8 py-6 text-base"
             >
               <a href="#projetos" className="flex items-center gap-2">
-                Ver Projetos <ArrowRight className="w-5 h-5" />
+                Ver Nossos Sonhos Realizados <ArrowRight className="w-5 h-5" />
               </a>
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-gray-900 px-8"
+              className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-6 text-base"
             >
-              <a href="#contato">Solicitar Orçamento</a>
+              <a href="#contato">Realizar Meu Sonho</a>
             </Button>
           </div>
         </div>
@@ -176,29 +184,57 @@ const Home = () => {
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-5xl font-bold text-[#C87533] mb-2">{stat.value}</div>
-                <div className="text-sm text-gray-600 uppercase tracking-wider">{stat.label}</div>
+                <div className="text-sm text-gray-600">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Manifesto Section */}
+      <section className="py-24 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <Sparkles className="w-12 h-12 text-[#C87533] mx-auto mb-6" />
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+              O Que Nos Move
+            </h2>
+            <p className="text-xl text-gray-700 leading-relaxed mb-8">
+              {companyInfo.manifesto}
+            </p>
+            <p className="text-2xl font-bold text-[#C87533] italic">
+              {companyInfo.slogan}
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Sobre Section */}
-      <section id="sobre" className="py-24 bg-gray-50">
+      <section id="sobre" className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
               <div>
-                <Badge className="mb-4 bg-[#C87533]/10 text-[#C87533] hover:bg-[#C87533]/20 border-none">Quem Somos</Badge>
+                <Badge className="mb-4 bg-[#C87533]/10 text-[#C87533] hover:bg-[#C87533]/20 border-none">Nossa História</Badge>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                  Tradição e Inovação
+                  Tradição Que Inova.
+                  <br />
+                  Inovação Que Respeita.
                 </h2>
                 <p className="text-gray-600 mb-6 leading-relaxed text-lg">
                   {companyInfo.philosophy}
                 </p>
-                <p className="text-gray-600 leading-relaxed text-lg">
+                <p className="text-gray-600 mb-8 leading-relaxed text-lg">
                   {companyInfo.approach}
                 </p>
+                <div className="grid grid-cols-2 gap-4">
+                  {whyMudare.map((item, index) => (
+                    <div key={index} className="p-4 bg-gray-50 rounded-lg">
+                      <h4 className="font-bold text-[#C87533] mb-2">{item.title}</h4>
+                      <p className="text-sm text-gray-600">{item.description}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
               <div className="relative">
                 <div className="aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
@@ -210,31 +246,24 @@ const Home = () => {
                 </div>
               </div>
             </div>
-
-            {/* Especializações */}
-            <div className="grid md:grid-cols-2 gap-6">
-              {specializations.slice(0, 6).map((spec, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#C87533] flex-shrink-0 mt-1" />
-                  <span className="text-gray-700">{spec}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
 
       {/* Excellence Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-3">
               {companyInfo.excellence.title}
             </h2>
-            <p className="text-xl text-gray-600 leading-relaxed mb-8">
+            <h3 className="text-3xl md:text-4xl font-light text-[#C87533] mb-8">
+              {companyInfo.excellence.subtitle}
+            </h3>
+            <p className="text-xl leading-relaxed mb-8">
               {companyInfo.excellence.description}
             </p>
-            <p className="text-lg text-gray-700 italic">
+            <p className="text-lg italic text-gray-300">
               {companyInfo.vision}
             </p>
           </div>
@@ -246,9 +275,9 @@ const Home = () => {
         <div className="container mx-auto px-6">
           <div className="mb-16 text-center">
             <Badge className="mb-4 bg-[#C87533]/10 text-[#C87533] hover:bg-[#C87533]/20 border-none">Portfólio</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Projetos em Destaque</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Sonhos Que Viraram Realidade</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Obras com arquitetura autoral e alto padrão construtivo
+              Cada projeto é uma história única de transformação e realização
             </p>
           </div>
 
@@ -272,12 +301,13 @@ const Home = () => {
             {filteredProjects.map((project, index) => (
               <div key={project.id} className="grid md:grid-cols-2 gap-8 items-center">
                 <div className={index % 2 === 0 ? 'order-1' : 'order-2'}>
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-xl">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-xl group">
                     <img 
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                 </div>
                 <div className={index % 2 === 0 ? 'order-2' : 'order-1'}>
@@ -285,22 +315,23 @@ const Home = () => {
                     {project.category}
                   </Badge>
                   <h3 className="text-3xl font-bold text-gray-900 mb-4">{project.title}</h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
-                  <div className="space-y-2 text-gray-700">
+                  <p className="text-gray-600 mb-4 leading-relaxed text-lg">{project.description}</p>
+                  <p className="text-gray-500 mb-6 italic leading-relaxed">{project.story}</p>
+                  <div className="space-y-2 text-gray-700 text-sm">
                     <div className="flex items-center gap-2">
-                      <span className="font-medium text-sm">Arquiteto:</span>
+                      <span className="font-medium">Arquiteto:</span>
                       <span>{project.architect}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="font-medium text-sm">Localização:</span>
+                      <span className="font-medium">Localização:</span>
                       <span>{project.location}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="font-medium text-sm">Área:</span>
+                      <span className="font-medium">Área:</span>
                       <span>{project.area}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="font-medium text-sm">Ano:</span>
+                      <span className="font-medium">Ano:</span>
                       <span>{project.year}</span>
                     </div>
                   </div>
@@ -316,46 +347,55 @@ const Home = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
-              <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-200 border-none">Metodologia</Badge>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Nosso Processo</h2>
+              <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-200 border-none">Nosso Jeito</Badge>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Do Sonho à Realidade</h2>
               <p className="text-xl text-gray-600">
                 {companyInfo.mission}
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {processSteps.map((step) => (
-                <Card key={step.id} className="border-none shadow-sm hover:shadow-md transition-shadow">
-                  <CardContent className="p-8">
-                    <div className="flex gap-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-12 h-12 bg-[#C87533] text-white rounded-full flex items-center justify-center font-bold">
-                          {step.number}
+            <div className="space-y-8">
+              {processSteps.map((step, index) => (
+                <div key={step.id}>
+                  <Card className="border-none shadow-sm hover:shadow-lg transition-all duration-300">
+                    <CardContent className="p-8">
+                      <div className="flex gap-6">
+                        <div className="flex-shrink-0">
+                          <div className="w-16 h-16 bg-[#C87533] text-white rounded-full flex items-center justify-center text-xl font-bold">
+                            {step.number}
+                          </div>
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-2xl font-bold text-gray-900 mb-1">{step.title}</h3>
+                          <p className="text-[#C87533] font-medium mb-3">{step.subtitle}</p>
+                          <p className="text-gray-700 leading-relaxed mb-2">{step.description}</p>
+                          <p className="text-sm text-gray-500 italic">{step.technical}</p>
                         </div>
                       </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
-                        <p className="text-gray-600 leading-relaxed">{step.description}</p>
-                      </div>
+                    </CardContent>
+                  </Card>
+                  {index < processSteps.length - 1 && (
+                    <div className="flex justify-center my-4">
+                      <ArrowRight className="w-6 h-6 text-[#C87533] rotate-90" />
                     </div>
-                  </CardContent>
-                </Card>
+                  )}
+                </div>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Construction Process Images */}
+      {/* Process Images */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-4">
             {processImages.map((image, index) => (
-              <div key={index} className="relative aspect-square overflow-hidden bg-gray-200 rounded-lg">
+              <div key={index} className="relative aspect-square overflow-hidden bg-gray-200 rounded-lg group">
                 <img 
                   src={image}
                   alt={`Processo ${index + 1}`}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
             ))}
@@ -368,16 +408,19 @@ const Home = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <Badge className="mb-4 bg-[#C87533]/10 text-[#C87533] hover:bg-[#C87533]/20 border-none">Serviços</Badge>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">O Que Fazemos</h2>
+              <Badge className="mb-4 bg-[#C87533]/10 text-[#C87533] hover:bg-[#C87533]/20 border-none">Soluções</Badge>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Como Podemos Ajudar</h2>
+              <p className="text-xl text-gray-600">Expertise completa para realizar seu projeto dos sonhos</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service) => (
-                <Card key={service.id} className="border-none shadow-sm hover:shadow-md transition-shadow bg-white">
+                <Card key={service.id} className="border-none shadow-sm hover:shadow-lg transition-all duration-300 group">
                   <CardContent className="p-8">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
+                    <p className="text-[#C87533] font-medium text-sm mb-4">{service.tagline}</p>
+                    <p className="text-gray-600 leading-relaxed mb-4">{service.description}</p>
+                    <p className="text-sm text-gray-500 italic">{service.emotional}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -391,16 +434,16 @@ const Home = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-200 border-none">Equipe</Badge>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Liderança</h2>
+              <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-200 border-none">Liderança</Badge>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Quem Faz Acontecer</h2>
               <p className="text-xl text-gray-600">
-                Engenheiros formados pela tradicional Faculdade de Engenharia de São Paulo
+                Engenheiros apaixonados pela arte de construir
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12">
               {teamMembers.map((member) => (
-                <Card key={member.id} className="border-none shadow-md hover:shadow-lg transition-shadow">
+                <Card key={member.id} className="border-none shadow-md hover:shadow-xl transition-all duration-300">
                   <CardContent className="p-10 text-center">
                     <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[#C87533]/20">
                       <img 
@@ -410,12 +453,13 @@ const Home = () => {
                       />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                    <p className="text-[#C87533] font-medium mb-6">{member.role}</p>
+                    <p className="text-[#C87533] font-medium mb-4">{member.role}</p>
+                    <p className="text-gray-600 italic mb-6">{member.bio}</p>
                     <Separator className="my-6" />
                     <div className="text-left space-y-3">
                       {member.credentials.map((credential, index) => (
                         <div key={index} className="flex items-start gap-3">
-                          <CheckCircle2 className="w-4 h-4 text-[#C87533] mt-1 flex-shrink-0" />
+                          <Heart className="w-4 h-4 text-[#C87533] mt-1 flex-shrink-0" />
                           <span className="text-sm text-gray-600">{credential}</span>
                         </div>
                       ))}
@@ -434,23 +478,24 @@ const Home = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <Badge className="mb-4 bg-[#C87533]/10 text-[#C87533] hover:bg-[#C87533]/20 border-none">Depoimentos</Badge>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">O Que Dizem</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Quem Confia, Recomenda</h2>
+              <p className="text-xl text-gray-600">Histórias reais de quem realizou sonhos conosco</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {testimonials.map((testimonial) => (
-                <Card key={testimonial.id} className="border-none shadow-sm hover:shadow-md transition-shadow bg-white">
+                <Card key={testimonial.id} className="border-none shadow-md hover:shadow-xl transition-all duration-300">
                   <CardContent className="p-8">
                     <div className="flex gap-1 mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <Star key={i} className="w-5 h-5 fill-[#C87533] text-[#C87533]" />
                       ))}
                     </div>
-                    <p className="text-gray-700 mb-6 italic leading-relaxed">"{testimonial.content}"</p>
+                    <p className="text-gray-700 mb-6 leading-relaxed">"{testimonial.content}"</p>
                     <div>
                       <div className="font-bold text-gray-900">{testimonial.name}</div>
                       <div className="text-sm text-gray-600">{testimonial.role}</div>
-                      <div className="text-sm text-[#C87533] mt-1">{testimonial.project}</div>
+                      <div className="text-sm text-[#C87533] mt-1 font-medium">{testimonial.project}</div>
                     </div>
                   </CardContent>
                 </Card>
@@ -461,14 +506,25 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Pronto para Começar?</h2>
-          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-            Entre em contato e descubra como podemos transformar seu projeto em patrimônio
+      <section className="py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23C87533" fill-opacity="0.4"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+          }} />
+        </div>
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6">Pronto Para Mudar?</h2>
+          <p className="text-2xl md:text-3xl font-light text-[#C87533] mb-8">
+            {companyInfo.slogan}
           </p>
-          <Button size="lg" className="bg-[#C87533] hover:bg-[#B06429] text-white px-8 py-6 text-base">
-            <a href="#contato">Solicitar Orçamento</a>
+          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+            Vamos transformar seu sonho em realidade. Entre em contato e descubra como podemos ajudar.
+          </p>
+          <Button size="lg" className="bg-[#C87533] hover:bg-[#B06429] text-white px-10 py-7 text-lg">
+            <a href="#contato" className="flex items-center gap-2">
+              <Heart className="w-6 h-6" />
+              Começar Minha Transformação
+            </a>
           </Button>
         </div>
       </section>
@@ -478,17 +534,17 @@ const Home = () => {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             <div>
-              <h3 className="text-2xl font-bold mb-4">{companyInfo.name}</h3>
-              <p className="text-gray-400 mb-4">{companyInfo.tagline}</p>
+              <img src="/logo-mudare.png" alt="MUDARE" className="h-12 mb-4" />
+              <p className="text-[#C87533] italic mb-4">{companyInfo.slogan}</p>
               <p className="text-gray-400 text-sm leading-relaxed">
-                {companyInfo.hero.description}
+                Construindo sonhos, criando legados, mudando vidas.
               </p>
             </div>
 
             <div>
-              <h4 className="text-lg font-bold mb-4">Links</h4>
+              <h4 className="text-lg font-bold mb-4">Links Rápidos</h4>
               <ul className="space-y-2">
-                <li><a href="#sobre" className="text-gray-400 hover:text-[#C87533] transition-colors">Sobre</a></li>
+                <li><a href="#sobre" className="text-gray-400 hover:text-[#C87533] transition-colors">Nossa História</a></li>
                 <li><a href="#projetos" className="text-gray-400 hover:text-[#C87533] transition-colors">Projetos</a></li>
                 <li><a href="#servicos" className="text-gray-400 hover:text-[#C87533] transition-colors">Serviços</a></li>
                 <li><a href="#equipe" className="text-gray-400 hover:text-[#C87533] transition-colors">Equipe</a></li>
@@ -496,7 +552,7 @@ const Home = () => {
             </div>
 
             <div>
-              <h4 className="text-lg font-bold mb-4">Contato</h4>
+              <h4 className="text-lg font-bold mb-4">Vamos Conversar</h4>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-[#C87533] flex-shrink-0 mt-1" />
@@ -525,7 +581,10 @@ const Home = () => {
           <Separator className="bg-gray-800 mb-8" />
 
           <div className="text-center text-gray-400 text-sm">
-            <p>© {new Date().getFullYear()} {companyInfo.name}. Todos os direitos reservados.</p>
+            <p className="mb-2">
+              © {new Date().getFullYear()} {companyInfo.name}. Todos os direitos reservados.
+            </p>
+            <p className="text-[#C87533] italic">{companyInfo.slogan}</p>
           </div>
         </div>
       </footer>

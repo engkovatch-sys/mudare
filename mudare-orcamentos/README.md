@@ -174,6 +174,10 @@ Usuário padrão criado pelo seeder:
 - Tipos: `items`, `prices`, `alerts`, `proposal` (`/works/{work}/export/csv?type=...`).
 - Salvos em `storage/app/exports`; download por controller (sem symlink).
 - CSV com BOM UTF-8 (acentuação correta no Excel) e separador `;`.
+- Valores são sanitizados contra **CSV formula injection** (células iniciadas por `= + - @`).
+- **Limpeza automática:** o comando `php artisan exports:cleanup --days=7` remove exports
+  antigos (agendado diariamente em `routes/console.php`); veja `deploy/hostgator/commands.md`
+  para ativar via Cron Job no cPanel. O botão "CSV preços" exporta a **base global** de preços.
 
 ---
 

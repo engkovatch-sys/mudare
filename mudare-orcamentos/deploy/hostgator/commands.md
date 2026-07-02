@@ -57,6 +57,35 @@ php artisan migrate:fresh --seed --force
 php artisan migrate --force
 ```
 
+## Limpeza de exports CSV (evita acúmulo em disco)
+
+Os CSVs ficam em `storage/app/exports`. Um comando remove os antigos:
+
+```bash
+# Remove exports com mais de 7 dias
+php artisan exports:cleanup --days=7
+
+# Apenas simular (não apaga nada)
+php artisan exports:cleanup --days=7 --dry-run
+```
+
+Já existe um agendamento diário (03:17) em `routes/console.php`. Para ativá-lo
+no cPanel, crie um **Cron Job** único rodando o scheduler do Laravel a cada minuto:
+
+```bash
+* * * * * cd /home/USUARIO_CPANEL/laravel-orcamentos && php artisan schedule:run >> /dev/null 2>&1
+```
+
+Alternativa (sem o scheduler): agende diretamente um Cron Job diário:
+
+```bash
+17 3 * * * cd /home/USUARIO_CPANEL/laravel-orcamentos && php artisan exports:cleanup --days=7 >> /dev/null 2>&1
+```
+
+Observação: a limpeza afeta apenas `storage/app/exports`. Os PDFs de propostas
+(`storage/app/proposals`) NÃO são apagados, pois são referenciados por registros
+na tabela `proposals` e permanecem disponíveis para download.
+
 ## Anthropic (IA)
 
 - Configure `ANTHROPIC_API_KEY` no `.env`. Sem a chave, o processamento

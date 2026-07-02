@@ -1,0 +1,35 @@
+# .htaccess para a pasta pública (public/ ou public_html/orcamentos).
+# Base do Laravel + hardening mínimo para hospedagem compartilhada.
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Se estiver em subpasta (Opção B), descomente e ajuste:
+    # RewriteBase /orcamentos/
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# Bloqueia acesso a arquivos sensíveis, caso algo escape para a pasta pública.
+<FilesMatch "^\.env|\.env\..*|composer\.(json|lock)|package\.json|artisan$">
+    Require all denied
+</FilesMatch>
+
+# Impede listagem de diretórios.
+Options -Indexes

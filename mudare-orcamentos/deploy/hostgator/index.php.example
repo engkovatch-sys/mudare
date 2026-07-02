@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * index.php PARA A OPÇÃO B (conteúdo do /public em public_html/orcamentos).
+ *
+ * Coloque este arquivo em:
+ *   /home/USUARIO_CPANEL/public_html/orcamentos/index.php
+ *
+ * Ajuste o caminho abaixo para o seu USUARIO_CPANEL real.
+ * O projeto Laravel completo fica FORA da pasta pública, em:
+ *   /home/USUARIO_CPANEL/laravel-orcamentos
+ */
+
+use Illuminate\Foundation\Application;
+use Illuminate\Http\Request;
+
+define('LARAVEL_START', microtime(true));
+
+// Caminho ABSOLUTO do projeto Laravel (fora do public_html).
+$app_base = '/home/USUARIO_CPANEL/laravel-orcamentos';
+
+// Modo de manutenção do Laravel.
+if (file_exists($maintenance = $app_base.'/storage/framework/maintenance.php')) {
+    require $maintenance;
+}
+
+// Autoloader do Composer (fica no projeto, NUNCA no public_html).
+require $app_base.'/vendor/autoload.php';
+
+// Bootstrap da aplicação.
+/** @var Application $app */
+$app = require_once $app_base.'/bootstrap/app.php';
+
+$app->handleRequest(Request::capture());

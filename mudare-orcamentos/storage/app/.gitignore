@@ -1,0 +1,7 @@
+*
+!private/
+!public/
+!proposals/
+!exports/
+!memorials/
+!.gitignore

@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\ExtractedItem;
 use App\Models\Memorial;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
@@ -81,14 +82,20 @@ class AnthropicExtractionService
 
         $consolidated = $this->consolidator->consolidate($allItems);
 
-        // Remove itens antigos deste memorial para reprocessamento idempotente.
-        ExtractedItem::where('memorial_id', $memorial->id)->delete();
+        // Substituição completa (replace-all) de forma ATÔMICA: se algo falhar
+        // entre o delete e as inserções, a transação é revertida e o estado
+        // anterior é preservado (importante para o fluxo de revisão humana).
+        $created = DB::transaction(function () use ($memorial, $consolidated) {
+            ExtractedItem::where('memorial_id', $memorial->id)->delete();
 
-        $created = 0;
-        foreach ($consolidated as $item) {
-            ExtractedItem::create($this->mapToRecord($memorial, $item));
-            $created++;
-        }
+            $count = 0;
+            foreach ($consolidated as $item) {
+                ExtractedItem::create($this->mapToRecord($memorial, $item));
+                $count++;
+            }
+
+            return $count;
+        });
 
         return [
             'success' => true,

@@ -64,7 +64,7 @@
                 <hr class="my-2">
                 <div class="btn-group">
                     <a href="{{ route('works.export.csv', $work) }}?type=items" class="btn btn-sm btn-outline-secondary">CSV itens</a>
-                    <a href="{{ route('works.export.csv', $work) }}?type=prices" class="btn btn-sm btn-outline-secondary">CSV preços</a>
+                    <a href="{{ route('works.export.csv', $work) }}?type=prices" class="btn btn-sm btn-outline-secondary" title="Exporta a base de preços completa (preços são globais, não vinculados a uma obra)">CSV preços (base global)</a>
                     <a href="{{ route('works.export.csv', $work) }}?type=alerts" class="btn btn-sm btn-outline-secondary">CSV alertas</a>
                     <a href="{{ route('works.export.csv', $work) }}?type=proposal" class="btn btn-sm btn-outline-secondary">CSV resumo</a>
                 </div>

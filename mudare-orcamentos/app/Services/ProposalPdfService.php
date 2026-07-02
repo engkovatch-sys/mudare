@@ -102,7 +102,11 @@ class ProposalPdfService
     protected function buildCostComposition($items)
     {
         return $items->map(function ($item) {
+            // Apenas preços APROVADOS entram no total comercial: a regra do
+            // sistema é que nenhum preço é final sem validação humana. Preços
+            // pending/estimado/rejected não compõem o VALOR TOTAL.
             $price = Price::query()
+                ->where('validation_status', 'approved')
                 ->where(function ($q) use ($item) {
                     $q->where('item_name', 'like', '%' . Str::limit((string) $item->item_identified, 30, '') . '%')
                       ->orWhere('category', $item->category);

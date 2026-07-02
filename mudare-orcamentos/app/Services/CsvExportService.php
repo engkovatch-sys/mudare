@@ -31,9 +31,9 @@ class CsvExportService
         $handle = fopen('php://temp', 'r+');
         // BOM para acentuação correta no Excel.
         fwrite($handle, "\xEF\xBB\xBF");
-        fputcsv($handle, $header, ';');
+        fputcsv($handle, array_map([$this, 'sanitize'], $header), ';');
         foreach ($rows as $row) {
-            fputcsv($handle, $row, ';');
+            fputcsv($handle, array_map([$this, 'sanitize'], $row), ';');
         }
         rewind($handle);
         $csv = stream_get_contents($handle);
@@ -42,6 +42,26 @@ class CsvExportService
         Storage::disk('local')->put($filename, $csv);
 
         return $filename;
+    }
+
+    /**
+     * Neutraliza CSV formula injection: células que começam com =, +, -, @
+     * (ou tab/CR seguidos desses) são interpretadas como fórmula por
+     * Excel/Sheets. Prefixamos com apóstrofo para forçar texto.
+     */
+    protected function sanitize($value): string
+    {
+        $value = (string) $value;
+
+        if ($value === '') {
+            return $value;
+        }
+
+        if (preg_match('/^[\t\r]*[=+\-@]/', $value)) {
+            return "'" . $value;
+        }
+
+        return $value;
     }
 
     protected function items(Work $work): array

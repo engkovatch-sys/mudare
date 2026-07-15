@@ -1,159 +1,75 @@
-# Mudare Engenharia - Website
+# Espaço Máxima — Site em HTML
 
-Site institucional da Mudare Engenharia com design clean e moderno.
+Versão estática em HTML/CSS/JS do site **Espaço Máxima — Estética, Pilates e Salão de Beleza**
+(Alto da Lapa, São Paulo), reconstruída a partir do conteúdo do site original em WordPress
+(espacomaxima.com.br).
 
-## 🎨 Estrutura do Projeto
+## 📁 Estrutura
 
 ```
 mudare/
-├── index.html          # Página inicial
-├── sobre.html          # Sobre a empresa
-├── servicos.html       # Serviços oferecidos
-├── portfolio.html      # Portfólio com carrossel de obras
-├── contato.html        # Página de contato
-├── css/
-│   └── style.css       # Estilos principais
-├── js/
-│   └── main.js         # JavaScript (carrossel, menu mobile, etc)
-└── images/
-    └── portfolio/      # Imagens das obras (obra1.jpg a obra6.jpg)
+├── index.html              # Home
+├── quem-somos.html         # Quem Somos
+├── servicos.html           # Visão geral dos serviços
+├── salao-de-beleza.html    # Salão de Beleza
+├── estetica-corporal.html  # Estética Corporal
+├── estetica-facial.html    # Estética Facial
+├── massagens-spa.html      # Massagens e Spa
+├── pilates.html            # Pilates
+├── galeria.html            # Galeria
+├── blog.html               # Blog (posts reais do site)
+├── contato.html            # Contato + mapa + formulário
+├── css/style.css           # Design system (rosé, dourado e mauve)
+└── js/main.js              # Menu mobile, animações e formulário → WhatsApp
 ```
 
-## 📋 Funcionalidades
+## 🎨 Identidade
 
-- ✅ Design clean e moderno
-- ✅ Totalmente responsivo (mobile, tablet, desktop)
-- ✅ Carrossel de obras no portfólio com:
-  - Navegação por botões
-  - Indicadores
-  - Auto-play
-  - Suporte a swipe em dispositivos móveis
-- ✅ Menu hamburger para mobile
-- ✅ Formulário de contato validado
-- ✅ Animações suaves ao scroll
-- ✅ SEO otimizado
+- **Cores:** rosé (`#b76e79`), mauve (`#5c3a4d`), dourado (`#c9a86a`), creme (`#faf5f2`)
+- **Fontes:** Playfair Display (títulos) + Poppins (texto) — via Google Fonts
+- **Estilo:** elegante e feminino, adequado a estética/spa/beleza
 
-## 🖼️ Como Adicionar Imagens ao Portfólio
+## 📍 Dados do negócio
 
-1. Adicione suas fotos de obras na pasta `images/portfolio/`
-2. Nomeie os arquivos como: `obra1.jpg`, `obra2.jpg`, `obra3.jpg`, etc.
-3. Tamanho recomendado: 1200x800px (proporção 3:2)
-4. Formato: JPG ou PNG
-5. Otimize as imagens para web (máximo 500KB por imagem)
+- **Endereço:** R. Pio XI, 656 — Alto da Lapa, São Paulo/SP
+- **WhatsApp/Telefone:** (11) 95021-8191
+- **Instagram:** @espacomaxima
 
-### Para adicionar mais slides ao carrossel:
+## ✅ Funcionalidades
 
-Edite o arquivo `portfolio.html` e adicione novos blocos dentro de `.carousel-container`:
+- Totalmente responsivo (mobile, tablet, desktop)
+- Menu hamburger e dropdown de serviços
+- Botão flutuante de WhatsApp em todas as páginas
+- Formulário de contato que abre o WhatsApp com a mensagem pronta
+- Animações suaves ao rolar a página
+- Mapa do Google incorporado na página de Contato
 
-```html
-<div class="carousel-item">
-    <img src="images/portfolio/obra7.jpg" alt="Descrição da Obra">
-    <div class="carousel-caption">
-        <h3>Título da Obra</h3>
-        <p>Descrição detalhada do projeto executado.</p>
-    </div>
-</div>
-```
+## 🖼️ Como adicionar fotos reais
 
-## ✏️ Personalizações Importantes
+As áreas coloridas com ícones (hero, cards de serviço, galeria) são placeholders.
+Para usar fotos reais:
 
-### 1. Informações de Contato
+1. Coloque as imagens em uma pasta `images/` (ex.: `images/facial.jpg`).
+2. Substitua o `<div class="thumb">💆‍♀️</div>` por `<img src="images/facial.jpg" alt="...">`
+   ou aplique a foto como `background-image` na classe correspondente do `css/style.css`.
+3. Tamanho recomendado: ~1200px de largura, otimizado para web (< 500 KB).
 
-Edite em TODAS as páginas (rodapé e página de contato):
+## 🚀 Como publicar
 
-- Email: `contato@mudare.eng.br`
-- Telefone: `(XX) XXXX-XXXX`
-- Endereço completo
-- Redes sociais (links no rodapé)
+**GitHub Pages:** Settings → Pages → selecione a branch → o site fica em
+`https://<usuario>.github.io/mudare/`.
 
-### 2. Cores do Site
+**Hospedagem tradicional:** envie todos os arquivos por FTP com `index.html` na raiz.
 
-Para alterar as cores, edite as variáveis no arquivo `css/style.css`:
+## ⚠️ Observações
 
-```css
-:root {
-    --primary-color: #2c3e50;      /* Cor principal */
-    --secondary-color: #3498db;    /* Cor secundária */
-    --accent-color: #e74c3c;       /* Cor de destaque */
-}
-```
-
-### 3. Logo
-
-Substitua o texto "Mudare." por uma imagem de logo editando em todas as páginas:
-
-```html
-<!-- De: -->
-<a href="index.html" class="logo">Mudare<span>.</span></a>
-
-<!-- Para: -->
-<a href="index.html" class="logo">
-    <img src="images/logo.png" alt="Mudare Engenharia" style="height: 40px;">
-</a>
-```
-
-### 4. Google Maps
-
-Na página `contato.html`, substitua o placeholder do mapa:
-
-1. Acesse [Google Maps](https://www.google.com/maps)
-2. Encontre seu endereço
-3. Clique em "Compartilhar" → "Incorporar um mapa"
-4. Copie o código iframe
-5. Substitua a div placeholder pelo iframe
-
-### 5. Formulário de Contato
-
-O formulário atualmente mostra apenas um alerta. Para funcionar de verdade, você pode:
-
-**Opção 1 - Formspree (gratuito):**
-```html
-<form class="contact-form" action="https://formspree.io/f/SEU_ID" method="POST">
-```
-
-**Opção 2 - EmailJS (gratuito):**
-Adicione o script do EmailJS no `main.js`
-
-**Opção 3 - Backend próprio:**
-Configure um servidor PHP/Node.js para processar o formulário
-
-## 🚀 Como Publicar o Site
-
-### GitHub Pages (Gratuito):
-
-1. Faça commit das alterações
-2. Push para o repositório
-3. Vá em Settings → Pages
-4. Selecione a branch main
-5. Seu site estará em: `https://seu-usuario.github.io/mudare/`
-
-### Hospedagem Tradicional:
-
-1. Faça upload de todos os arquivos via FTP
-2. Certifique-se de que o `index.html` está na raiz
-3. Configure o domínio `www.mudare.eng.br` no seu provedor
-
-## 📱 Responsividade
-
-O site é totalmente responsivo e funciona perfeitamente em:
-- 📱 Smartphones (320px+)
-- 📱 Tablets (768px+)
-- 💻 Desktops (1024px+)
-- 🖥️ Telas grandes (1920px+)
-
-## 🎯 SEO
-
-Cada página possui:
-- Meta description
-- Meta keywords
-- Título otimizado
-- Estrutura semântica HTML5
-- Alt text em imagens
-
-## 📞 Suporte
-
-Para dúvidas ou ajustes, entre em contato através do email cadastrado.
+- O site ao vivo bloqueia acesso automatizado, então o layout **não** é um clone pixel-a-pixel:
+  é uma reconstrução fiel do conteúdo, da estrutura de páginas e das informações reais do negócio.
+- Os textos das páginas de serviço foram redigidos com base nos serviços que o Espaço Máxima
+  oferece (extraídos do backup/WordPress). Revise e ajuste valores, horários e descrições
+  conforme necessário.
+- Confirme o usuário do Instagram e os links de redes sociais antes de publicar.
 
 ---
 
-**Desenvolvido para Mudare Engenharia** - Design clean e profissional
+**Espaço Máxima** — Cuidar de você é a nossa máxima.
